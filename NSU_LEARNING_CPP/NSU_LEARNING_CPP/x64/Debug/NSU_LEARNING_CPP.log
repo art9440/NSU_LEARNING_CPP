@@ -1,0 +1,11 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (NSU_LEARNING_CPP.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  main.cpp
+C:\Users\user\source\repos\NSU_LEARNING_CPP\NSU_LEARNING_CPP\main.cpp(20,18): error C2668: Module1::getMyName: неоднозначный вызов перегруженной функции
+      C:\Users\user\source\repos\NSU_LEARNING_CPP\NSU_LEARNING_CPP\module1.h(5,17):
+      может быть "std::string Module1::getMyName(void)"
+      C:\Users\user\source\repos\NSU_LEARNING_CPP\NSU_LEARNING_CPP\module2.h(5,17):
+      или       "std::string Module2::getMyName(void)"
+      C:\Users\user\source\repos\NSU_LEARNING_CPP\NSU_LEARNING_CPP\main.cpp(20,18):
+      при попытке сопоставить список аргументов "()"
+  
+C:\Users\user\source\repos\NSU_LEARNING_CPP\NSU_LEARNING_CPP\main.cpp(20,15): error C2088: встроенный оператор "<<" не может быть применен к операнду типа "std::ostream"
