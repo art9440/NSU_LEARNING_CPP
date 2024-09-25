@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -29,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -41,12 +41,11 @@
               "RelativeToolTip": "BitArray_lab1\\CMakeLists.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-24T06:04:55.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T06:04:55.892Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BitArray_lab1.cpp",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
               "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.cpp",
@@ -59,13 +58,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BitArray_lab1.h",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
               "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.h",
               "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
               "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-24T05:56:58.941Z",
               "EditorCaption": ""
@@ -80,8 +79,7 @@
               "RelativeToolTip": "CMakeLists.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-24T05:56:14.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T05:56:14.12Z"
             },
             {
               "$type": "Document",
@@ -90,8 +88,7 @@
               "DocumentMoniker": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
               "ToolTip": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-24T05:55:51.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T05:55:51.557Z"
             }
           ]
         }

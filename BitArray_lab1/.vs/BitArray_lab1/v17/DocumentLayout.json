@@ -29,8 +29,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BitArray_lab1.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
+              "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
+              "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-24T05:58:33.002Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -42,32 +55,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-24T06:04:55.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BitArray_lab1.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
-              "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.cpp",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
-              "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-24T05:58:33.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BitArray_lab1.h",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
-              "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.h",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
-              "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T05:56:58.941Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -89,6 +76,40 @@
               "ToolTip": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-09-24T05:55:51.557Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "ea98cf48-d2a9-4173-b1bc-37573d48ad0e",
+        "Display": 0,
+        "X": 311,
+        "Y": 134,
+        "Width": 974,
+        "Height": 623,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BitArray_lab1.h",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
+              "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.h",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
+              "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.h",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAABkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-24T05:56:58.941Z",
+              "EditorCaption": ""
             }
           ]
         }
