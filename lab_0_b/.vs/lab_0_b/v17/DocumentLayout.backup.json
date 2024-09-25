@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\lab_0_b\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\CSV_writer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\CSV_writer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|solutionrelative:lab_0_b\\CSV_writer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\Data_reader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\Data_reader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|solutionrelative:lab_0_b\\Data_reader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\word_count.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\word_count.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|solutionrelative:lab_0_b\\word_count.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\output.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\output.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|solutionrelative:lab_0_b\\output.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{BDF6F2F2-2A1B-4436-B6C0-9C3D995D269D}|lab_0_b\\lab_0_b.vcxproj|solutionrelative:lab_0_b\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -30,29 +30,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "output.csv",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\output.csv",
+              "RelativeDocumentMoniker": "lab_0_b\\output.csv",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\output.csv",
+              "RelativeToolTip": "lab_0_b\\output.csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2024-09-21T08:28:42.072Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "input.txt",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\input.txt",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\input.txt",
               "RelativeDocumentMoniker": "lab_0_b\\input.txt",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\input.txt",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\input.txt",
               "RelativeToolTip": "lab_0_b\\input.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-20T13:31:14.905Z"
+              "WhenOpened": "2024-09-21T08:28:40.212Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CSV_writer.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\CSV_writer.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\CSV_writer.cpp",
               "RelativeDocumentMoniker": "lab_0_b\\CSV_writer.cpp",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\CSV_writer.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\CSV_writer.cpp",
               "RelativeToolTip": "lab_0_b\\CSV_writer.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-14T07:57:25.57Z",
               "EditorCaption": ""
@@ -61,11 +75,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Data_reader.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\Data_reader.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\Data_reader.cpp",
               "RelativeDocumentMoniker": "lab_0_b\\Data_reader.cpp",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\Data_reader.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\Data_reader.cpp",
               "RelativeToolTip": "lab_0_b\\Data_reader.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACMAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-14T07:38:36.657Z",
               "EditorCaption": ""
@@ -74,25 +88,14 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "word_count.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\word_count.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\word_count.cpp",
               "RelativeDocumentMoniker": "lab_0_b\\word_count.cpp",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\word_count.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\lab_0_b\\lab_0_b\\word_count.cpp",
               "RelativeToolTip": "lab_0_b\\word_count.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-13T18:21:55.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "output.csv",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\output.csv",
-              "RelativeDocumentMoniker": "lab_0_b\\output.csv",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\lab_0_b\\lab_0_b\\output.csv",
-              "RelativeToolTip": "lab_0_b\\output.csv",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-09-13T18:21:44.049Z"
+              "WhenOpened": "2024-09-13T18:21:55.332Z",
+              "EditorCaption": ""
             }
           ]
         }
