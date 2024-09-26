@@ -1,5 +1,0 @@
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/out/build/x64-debug/CMakeFiles/edit_cache.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/out/build/x64-debug/BitArray_lab1/CMakeFiles/BitArray_lab1.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/out/build/x64-debug/BitArray_lab1/CMakeFiles/edit_cache.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/out/build/x64-debug/BitArray_lab1/CMakeFiles/rebuild_cache.dir

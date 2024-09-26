@@ -7,19 +7,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake||{B1CAA5B0-FEB1-4350-8AB9-F895876842F2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitArray_lab1\\BitArray_lab1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,8 +22,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CMakeLists.txt",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt",
+              "RelativeDocumentMoniker": "BitArray_lab1\\CMakeLists.txt",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt",
+              "RelativeToolTip": "BitArray_lab1\\CMakeLists.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-26T13:17:37.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -39,76 +49,22 @@
               "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.cpp",
               "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.cpp",
               "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-24T05:58:33.002Z",
+              "WhenOpened": "2024-09-26T13:18:25.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CMakeLists.txt",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt",
-              "RelativeDocumentMoniker": "BitArray_lab1\\CMakeLists.txt",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\CMakeLists.txt",
-              "RelativeToolTip": "BitArray_lab1\\CMakeLists.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-24T06:04:55.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CMakeLists.txt",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\CMakeLists.txt",
-              "RelativeDocumentMoniker": "CMakeLists.txt",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\CMakeLists.txt",
-              "RelativeToolTip": "CMakeLists.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-24T05:56:14.12Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
-              "DocumentMoniker": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
-              "ToolTip": "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043E\u0431\u0437\u043E\u0440\u0430 CMake",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-24T05:55:51.557Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "ea98cf48-d2a9-4173-b1bc-37573d48ad0e",
-        "Display": 0,
-        "X": 311,
-        "Y": 134,
-        "Width": 974,
-        "Height": 623,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BitArray_lab1.h",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
               "RelativeDocumentMoniker": "BitArray_lab1\\BitArray_lab1.h",
               "ToolTip": "C:\\Users\\user\\source\\repos\\NSU_LEARNING_CPP\\BitArray_lab1\\BitArray_lab1\\BitArray_lab1.h",
               "RelativeToolTip": "BitArray_lab1\\BitArray_lab1.h",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAABkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T05:56:58.941Z",
+              "WhenOpened": "2024-09-26T13:18:28.603Z",
               "EditorCaption": ""
             }
           ]

@@ -1,0 +1,14 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "BitArray_lab1\\build\\x64-debug",
+      "BitArray_lab1\\install\\x64-debug",
+      "BitArray_lab1\\build\\x64-release",
+      "BitArray_lab1\\install\\x64-release",
+      "BitArray_lab1\\build\\x86-debug",
+      "BitArray_lab1\\install\\x86-debug",
+      "BitArray_lab1\\build\\x86-release",
+      "BitArray_lab1\\install\\x86-release"
+    ]
+  }
+}

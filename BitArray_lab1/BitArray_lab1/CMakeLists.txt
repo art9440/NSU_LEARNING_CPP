@@ -1,8 +1,6 @@
-﻿
-add_executable (BitArray_lab1 "BitArray_lab1.cpp" "BitArray_lab1.h")
+﻿cmake_minimum_required(VERSION 2.4)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET BitArray_lab1 PROPERTY CXX_STANDARD 20)
-endif()
+project(BitArray_lab1)
+set(CMAKE_CXX_STANDARD 20)
 
-
+add_executable(BitArray BitArray_lab1.cpp BitArray_lab1.cpp main.cpp)

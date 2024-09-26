@@ -1,0 +1,18 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "BitArray.exe",
+      "name": "BitArray.exe"
+    },
+    {
+      "type": "default",
+      "project": "BitArray_lab1\\CMakeLists.txt",
+      "projectTarget": "BitArray.exe",
+      "name": "BitArray.exe"
+    }
+  ]
+}

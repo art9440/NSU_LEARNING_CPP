@@ -12,8 +12,9 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BitArray_lab1"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\BitArray_lab1\\build",
   "PreviewInSolutionExplorer": false
 }

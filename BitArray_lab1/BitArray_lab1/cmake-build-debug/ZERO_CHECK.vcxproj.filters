@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\cmake-build-debug\CMakeFiles\b21832091598d34580ea42fc8fd9b1d8\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EDF2532A-4E25-3F4B-96F9-DE27E19992BF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+^C:\USERS\USER\SOURCE\REPOS\NSU_LEARNING_CPP\BITARRAY_LAB1\BITARRAY_LAB1\CMAKE-BUILD-DEBUG\CMAKEFILES\B21832091598D34580EA42FC8FD9B1D8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1 -BC:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/cmake-build-debug --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/cmake-build-debug/BitArray_lab1.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
