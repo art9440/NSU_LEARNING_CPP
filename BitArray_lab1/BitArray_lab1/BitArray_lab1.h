@@ -8,7 +8,7 @@ class BitArray
 {
 private:
 	std::vector<char> bit_array;
-	size_t bit_count;
+	int bit_count;
 
 public:
 	BitArray();
