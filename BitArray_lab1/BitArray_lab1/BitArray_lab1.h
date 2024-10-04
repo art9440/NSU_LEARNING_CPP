@@ -1,5 +1,8 @@
 ﻿#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <stdexcept>
 
 
 const int BYTE_SIZE = 8;

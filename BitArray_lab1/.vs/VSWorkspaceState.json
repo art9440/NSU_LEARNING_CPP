@@ -14,8 +14,7 @@
   "ExpandedNodes": [
     "",
     "\\BitArray_lab1",
-    "\\BitArray_lab1\\build",
-    "\\BitArray_lab1\\cmake-build-debug\\Debug"
+    "\\BitArray_lab1\\build"
   ],
   "PreviewInSolutionExplorer": false
 }

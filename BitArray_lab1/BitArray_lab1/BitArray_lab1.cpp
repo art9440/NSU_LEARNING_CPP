@@ -82,11 +82,63 @@ BitArray& BitArray::operator^=(const BitArray& b) {
 
 
 BitArray& BitArray::operator<<=(int n) {
+	int byte_shift = n / BYTE_SIZE;
+	int bit_shift = n % BYTE_SIZE;
+	int byte_num = (bit_count + BYTE_SIZE - 1) / BYTE_SIZE;
 
+	if (n >= bit_count) {
+		reset();
+		return *this;
+	}
+	if (bit_shift == 0) {
+		std::move(bit_array.begin() - byte_shift, bit_array.end(), bit_array.begin());
+		std::fill(bit_array.end() - byte_shift, bit_array.end(), 0);
+	}
+	else {
+		std::move(bit_array.begin() - byte_shift, bit_array.end(), bit_array.begin());
+		std::fill(bit_array.end() - byte_shift, bit_array.end(), 0);
+		char overbit = 0;
+		for (size_t i = 0; i < byte_num; i++) {
+			char cur = bit_array[i];
+			bit_array[i] = (cur << bit_shift) | overbit;
+			overbit = (cur >> (BYTE_SIZE - bit_shift));
+		}
+	}
+	if (bit_count % BYTE_SIZE != 0) {
+		char mask = (1 << (bit_count % BYTE_SIZE)) - 1;
+		bit_array[byte_num - 1] &= mask;
+	}
+	return *this;
 }
 
 BitArray& BitArray::operator>>=(int n) {
+	int byte_shift = n / BYTE_SIZE;
+	int bit_shift = n % BYTE_SIZE;
+	int byte_num = (bit_count + BYTE_SIZE - 1) / BYTE_SIZE;
 
+	if (n >= bit_count) {
+		reset();
+		return *this;
+	}
+	if (bit_shift == 0) {
+		std::move(bit_array.begin() + byte_shift, bit_array.end(), bit_array.begin());
+		std::fill(bit_array.end() - byte_shift, bit_array.end(), 0);
+	}
+	else {
+		std::move(bit_array.begin() + byte_shift, bit_array.end(), bit_array.begin());
+		std::fill(bit_array.end() - byte_shift, bit_array.end(), 0);
+		char overbit = 0;
+		for (size_t i = byte_num - 1; i >= 0; i--) {
+			char cur = bit_array[i];
+			bit_array[i] = (cur >> bit_shift) | overbit;
+			overbit = (cur << (BYTE_SIZE - bit_shift));
+		}
+	}
+	if (bit_count % BYTE_SIZE != 0) {
+		char mask = (1 << (bit_count % BYTE_SIZE)) - 1;
+		bit_array[byte_num - 1] &= mask;
+	}
+	return *this;
 }
 
 BitArray BitArray::operator<<(int n) const {
@@ -183,22 +235,49 @@ bool BitArray::empty() const {
 }
 
 std::string BitArray::to_string() const {
+	std::string res;
+	for (size_t i = 0; i < bit_count; i++) {
+		int byte = i / BYTE_SIZE;
+		int bit = i % BYTE_SIZE;
+		res.push_back(bit_array[byte] & 1 << bit);
+	}
 
+	return res;
 }
 
 bool operator==(const BitArray& a, const BitArray& b) {
+	if (a.size() != b.size())
+		return false;
+	for (size_t i = 0; i < b.size(); i++)
+		if (a.operator[](i) != b.operator[](i))
+			return false;
+	return true;
 
 }
 bool operator!=(const BitArray& a, const BitArray& b) {
-
+	return !(operator==(a, b));
 }
 
 BitArray operator&(const BitArray& b1, const BitArray& b2) {
-
+	if (b1.size() != b1.size())
+		throw std::invalid_argument("different sizes");
+	
+	BitArray res = b1;
+	return res.operator&=(b2);
 }
+
 BitArray operator|(const BitArray& b1, const BitArray& b2) {
+	if (b1.size() != b1.size())
+		throw std::invalid_argument("different sizes");
 
+	BitArray res = b1;
+	return res.operator|=(b2);
 }
-BitArray operator^(const BitArray& b1, const BitArray& b2) {
 
+BitArray operator^(const BitArray& b1, const BitArray& b2) {
+	if (b1.size() != b1.size())
+		throw std::invalid_argument("different sizes");
+
+	BitArray res = b1;
+	return res.operator^=(b2);
 }
