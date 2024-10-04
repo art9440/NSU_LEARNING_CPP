@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/tests[1]_tests.cmake")
+  include("C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/tests[1]_tests.cmake")
+else()
+  add_test(tests_NOT_BUILT tests_NOT_BUILT)
+endif()

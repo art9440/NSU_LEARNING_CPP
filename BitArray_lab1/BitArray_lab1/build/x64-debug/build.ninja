@@ -49,14 +49,14 @@ cmake_ninja_workdir = C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1
 
 build cmake_object_order_depends_target_BitArray: phony || .
 
-build CMakeFiles\BitArray.dir\BitArray_lab1.obj: CXX_COMPILER__BitArray_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\BitArray_lab1.cpp || cmake_object_order_depends_target_BitArray
+build CMakeFiles\BitArray.dir\BitArray_lab1.cpp.obj: CXX_COMPILER__BitArray_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\BitArray_lab1.cpp || cmake_object_order_depends_target_BitArray
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
   OBJECT_DIR = CMakeFiles\BitArray.dir
   OBJECT_FILE_DIR = CMakeFiles\BitArray.dir
   TARGET_COMPILE_PDB = CMakeFiles\BitArray.dir\
   TARGET_PDB = BitArray.pdb
 
-build CMakeFiles\BitArray.dir\main.obj: CXX_COMPILER__BitArray_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\main.cpp || cmake_object_order_depends_target_BitArray
+build CMakeFiles\BitArray.dir\main.cpp.obj: CXX_COMPILER__BitArray_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\main.cpp || cmake_object_order_depends_target_BitArray
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
   OBJECT_DIR = CMakeFiles\BitArray.dir
   OBJECT_FILE_DIR = CMakeFiles\BitArray.dir
@@ -71,7 +71,7 @@ build CMakeFiles\BitArray.dir\main.obj: CXX_COMPILER__BitArray_unscanned_Debug C
 #############################################
 # Link the executable BitArray.exe
 
-build BitArray.exe: CXX_EXECUTABLE_LINKER__BitArray_Debug CMakeFiles\BitArray.dir\BitArray_lab1.obj CMakeFiles\BitArray.dir\main.obj
+build BitArray.exe: CXX_EXECUTABLE_LINKER__BitArray_Debug CMakeFiles\BitArray.dir\BitArray_lab1.cpp.obj CMakeFiles\BitArray.dir\main.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -82,6 +82,64 @@ build BitArray.exe: CXX_EXECUTABLE_LINKER__BitArray_Debug CMakeFiles\BitArray.di
   TARGET_FILE = BitArray.exe
   TARGET_IMPLIB = BitArray.lib
   TARGET_PDB = BitArray.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target tests
+
+
+#############################################
+# Order-only phony target for tests
+
+build cmake_object_order_depends_target_tests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles\tests.dir\tests.cc.obj: CXX_COMPILER__tests_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\tests.cc || cmake_object_order_depends_target_tests
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
+  INCLUDES = -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest -external:W0
+  OBJECT_DIR = CMakeFiles\tests.dir
+  OBJECT_FILE_DIR = CMakeFiles\tests.dir
+  TARGET_COMPILE_PDB = CMakeFiles\tests.dir\
+  TARGET_PDB = tests.pdb
+
+build CMakeFiles\tests.dir\BitArray_lab1.cpp.obj: CXX_COMPILER__tests_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\BitArray_lab1.cpp || cmake_object_order_depends_target_tests
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
+  INCLUDES = -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest -external:W0
+  OBJECT_DIR = CMakeFiles\tests.dir
+  OBJECT_FILE_DIR = CMakeFiles\tests.dir
+  TARGET_COMPILE_PDB = CMakeFiles\tests.dir\
+  TARGET_PDB = tests.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target tests
+
+
+#############################################
+# Link the executable tests.exe
+
+build tests.exe tests[1]_tests.cmake | ${cmake_ninja_workdir}tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__tests_Debug CMakeFiles\tests.dir\tests.cc.obj CMakeFiles\tests.dir\BitArray_lab1.cpp.obj | lib\gtest_main.lib lib\gtest.lib || lib\gtest.lib lib\gtest_main.lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = lib\gtest_main.lib  lib\gtest.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\tests.dir
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -D TEST_TARGET=tests -D TEST_EXECUTABLE=C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/tests.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=tests_TESTS -D CTEST_FILE=C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/GoogleTestAddTests.cmake""
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_COMPILE_PDB = CMakeFiles\tests.dir\
+  TARGET_FILE = tests.exe
+  TARGET_IMPLIB = tests.lib
+  TARGET_PDB = tests.pdb
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles\test.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles\test.util
 
 
 #############################################
@@ -106,10 +164,432 @@ build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles\install.util: CUSTOM_COMMAND all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles\install\local.util: CUSTOM_COMMAND all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install\local: phony CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build _deps\googletest-build\CMakeFiles\test.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\test: phony _deps\googletest-build\CMakeFiles\test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps\googletest-build\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps\googletest-build\edit_cache: phony _deps\googletest-build\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps\googletest-build\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1 -BC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\rebuild_cache: phony _deps\googletest-build\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps\googletest-build\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps\googletest-build\CMakeFiles\install.util: CUSTOM_COMMAND _deps\googletest-build\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\install: phony _deps\googletest-build\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps\googletest-build\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\googletest-build\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\install\local: phony _deps\googletest-build\CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/_deps/googletest-src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || .
+
+build _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\__\googletest\src\gtest-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\src\gtest-all.cc || cmake_object_order_depends_target_gmock
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\__\googletest\src
+  TARGET_COMPILE_PDB = lib\gmockpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gmockpdb_debug_postfix-NOTFOUND.pdb
+
+build _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\src\gmock-all.cc || cmake_object_order_depends_target_gmock
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src
+  TARGET_COMPILE_PDB = lib\gmockpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gmockpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib\gmock.lib
+
+build lib\gmock.lib: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\__\googletest\src\gtest-all.cc.obj _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\gmockpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\gmock.lib
+  TARGET_PDB = bin\gmockpdb_debug_postfix-NOTFOUND.pdb
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || .
+
+build _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\__\googletest\src\gtest-all.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\src\gtest-all.cc || cmake_object_order_depends_target_gmock_main
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\__\googletest\src
+  TARGET_COMPILE_PDB = lib\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+build _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock-all.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\src\gmock-all.cc || cmake_object_order_depends_target_gmock_main
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src
+  TARGET_COMPILE_PDB = lib\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+build _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\src\gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googlemock -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src
+  TARGET_COMPILE_PDB = lib\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib\gmock_main.lib
+
+build lib\gmock_main.lib: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\__\googletest\src\gtest-all.cc.obj _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock-all.cc.obj _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\gmock_main.lib
+  TARGET_PDB = bin\gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+#############################################
+# Utility command for test
+
+build _deps\googletest-build\googlemock\CMakeFiles\test.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googlemock && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googlemock\test: phony _deps\googletest-build\googlemock\CMakeFiles\test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps\googletest-build\googlemock\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googlemock && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps\googletest-build\googlemock\edit_cache: phony _deps\googletest-build\googlemock\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps\googletest-build\googlemock\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googlemock && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1 -BC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googlemock\rebuild_cache: phony _deps\googletest-build\googlemock\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps\googletest-build\googlemock\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps\googletest-build\googlemock\CMakeFiles\install.util: CUSTOM_COMMAND _deps\googletest-build\googlemock\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googlemock && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googlemock\install: phony _deps\googletest-build\googlemock\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps\googletest-build\googlemock\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\googletest-build\googlemock\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googlemock && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googlemock\install\local: phony _deps\googletest-build\googlemock\CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/_deps/googletest-src/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || .
+
+build _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\src\gtest-all.cc || cmake_object_order_depends_target_gtest
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src
+  TARGET_COMPILE_PDB = lib\gtestpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gtestpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib\gtest.lib
+
+build lib\gtest.lib: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\gtestpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\gtest.lib
+  TARGET_PDB = bin\gtestpdb_debug_postfix-NOTFOUND.pdb
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\src\gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 -GS -W4 -WX -wd4251 -wd4275 -nologo -J -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN -wd4702 -utf-8 -DGTEST_HAS_PTHREAD=0 -EHsc -D_HAS_EXCEPTIONS=1
+  INCLUDES = -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest\include -external:IC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-src\googletest -external:W0
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src
+  TARGET_COMPILE_PDB = lib\gtest_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\gtest_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib\gtest_main.lib
+
+build lib\gtest_main.lib: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj || lib\gtest.lib
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W4 /GR  /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\gtest_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\gtest_main.lib
+  TARGET_PDB = bin\gtest_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+#############################################
+# Utility command for test
+
+build _deps\googletest-build\googletest\CMakeFiles\test.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googletest && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googletest\test: phony _deps\googletest-build\googletest\CMakeFiles\test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps\googletest-build\googletest\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googletest && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps\googletest-build\googletest\edit_cache: phony _deps\googletest-build\googletest\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps\googletest-build\googletest\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googletest && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1 -BC:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googletest\rebuild_cache: phony _deps\googletest-build\googletest\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps\googletest-build\googletest\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps\googletest-build\googletest\CMakeFiles\install.util: CUSTOM_COMMAND _deps\googletest-build\googletest\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googletest && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googletest\install: phony _deps\googletest-build\googletest\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps\googletest-build\googletest\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\googletest-build\googletest\all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\build\x64-debug\_deps\googletest-build\googletest && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps\googletest-build\googletest\install\local: phony _deps\googletest-build\googletest\CMakeFiles\install\local.util
+
 # =============================================================================
 # Target aliases.
 
 build BitArray: phony BitArray.exe
+
+build gmock: phony lib\gmock.lib
+
+build gmock.lib: phony lib\gmock.lib
+
+build gmock_main: phony lib\gmock_main.lib
+
+build gmock_main.lib: phony lib\gmock_main.lib
+
+build gtest: phony lib\gtest.lib
+
+build gtest.lib: phony lib\gtest.lib
+
+build gtest_main: phony lib\gtest_main.lib
+
+build gtest_main.lib: phony lib\gtest_main.lib
+
+build tests: phony tests.exe
 
 # =============================================================================
 # Folder targets.
@@ -119,12 +599,28 @@ build BitArray: phony BitArray.exe
 #############################################
 # Folder: C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug
 
-build all: phony BitArray.exe
+build all: phony BitArray.exe tests.exe _deps\googletest-build\all
 
 # =============================================================================
-# Unknown Build Time Dependencies.
-# Tell Ninja that they may appear as side effects of build rules
-# otherwise ordered by order-only dependencies.
+
+#############################################
+# Folder: C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/_deps/googletest-build
+
+build _deps\googletest-build\all: phony _deps\googletest-build\googlemock\all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/_deps/googletest-build/googlemock
+
+build _deps\googletest-build\googlemock\all: phony lib\gmock.lib lib\gmock_main.lib _deps\googletest-build\googletest\all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/build/x64-debug/_deps/googletest-build/googletest
+
+build _deps\googletest-build\googletest\all: phony lib\gtest.lib lib\gtest_main.lib
 
 # =============================================================================
 # Built-in targets
@@ -133,14 +629,14 @@ build all: phony BitArray.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\CMakeLists.txt CMakeCache.txt CMakeFiles\3.29.5-msvc4\CMakeCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeCXXCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeRCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPython.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPython\Support.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\GoogleTest.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\WriteBasicConfigVersionFile.cmake C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\CMakeLists.txt CMakeCache.txt CMakeFiles\3.29.5-msvc4\CMakeCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeCXXCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeRCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeSystem.cmake _deps\googletest-src\CMakeLists.txt _deps\googletest-src\googlemock\CMakeLists.txt _deps\googletest-src\googlemock\cmake\gmock.pc.in _deps\googletest-src\googlemock\cmake\gmock_main.pc.in _deps\googletest-src\googletest\CMakeLists.txt _deps\googletest-src\googletest\cmake\Config.cmake.in _deps\googletest-src\googletest\cmake\gtest.pc.in _deps\googletest-src\googletest\cmake\gtest_main.pc.in _deps\googletest-src\googletest\cmake\internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\CMakeLists.txt CMakeCache.txt CMakeFiles\3.29.5-msvc4\CMakeCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeCXXCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeRCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeSystem.cmake: phony
+build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPython.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindPython\Support.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\GoogleTest.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.29\Modules\WriteBasicConfigVersionFile.cmake C$:\Users\user\source\repos\NSU_LEARNING_CPP\BitArray_lab1\BitArray_lab1\CMakeLists.txt CMakeCache.txt CMakeFiles\3.29.5-msvc4\CMakeCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeCXXCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeRCCompiler.cmake CMakeFiles\3.29.5-msvc4\CMakeSystem.cmake _deps\googletest-src\CMakeLists.txt _deps\googletest-src\googlemock\CMakeLists.txt _deps\googletest-src\googlemock\cmake\gmock.pc.in _deps\googletest-src\googlemock\cmake\gmock_main.pc.in _deps\googletest-src\googletest\CMakeLists.txt _deps\googletest-src\googletest\cmake\Config.cmake.in _deps\googletest-src\googletest\cmake\gtest.pc.in _deps\googletest-src\googletest\cmake\gtest_main.pc.in _deps\googletest-src\googletest\cmake\internal_utils.cmake: phony
 
 
 #############################################
