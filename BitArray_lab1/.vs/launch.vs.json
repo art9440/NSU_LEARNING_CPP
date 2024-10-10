@@ -13,6 +13,12 @@
       "project": "BitArray_lab1\\CMakeLists.txt",
       "projectTarget": "BitArray.exe",
       "name": "BitArray.exe"
+    },
+    {
+      "type": "default",
+      "project": "BitArray_lab1\\CMakeLists.txt",
+      "projectTarget": "testing.exe",
+      "name": "testing.exe"
     }
   ]
 }

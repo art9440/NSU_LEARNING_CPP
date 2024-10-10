@@ -1,3 +1,0 @@
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/cmake-build-debug/CMakeFiles/BitArray.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/cmake-build-debug/CMakeFiles/ALL_BUILD.dir
-C:/Users/user/source/repos/NSU_LEARNING_CPP/BitArray_lab1/BitArray_lab1/cmake-build-debug/CMakeFiles/ZERO_CHECK.dir

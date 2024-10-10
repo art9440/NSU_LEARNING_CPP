@@ -1,7 +1,6 @@
-﻿cmake_minimum_required(VERSION 2.4)
+﻿cmake_minimum_required (VERSION 3.8)
 
-project(BitArray_lab1)
-set(CMAKE_CXX_STANDARD 20)
+project ("lab1")
 
 include(FetchContent)
 FetchContent_Declare(
@@ -12,20 +11,21 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(BitArray BitArray_lab1.h BitArray_lab1.cpp main.cpp)
+add_executable (lab1 "main.cpp"  "BitArray_lab1.cpp" "BitArray_lab1.h" )
 
 enable_testing()
 
 add_executable(
-  tests
+  hello_test
   tests.cc
   BitArray_lab1.cpp
  )
 
 target_link_libraries(
-  tests
+  hello_test
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(tests)
+gtest_discover_tests(hello_test)
+

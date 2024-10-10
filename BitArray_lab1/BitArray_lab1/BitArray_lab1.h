@@ -81,6 +81,7 @@ public:
 
 	//Возвращает строковое представление массива.
 	std::string to_string() const;
+
 };
 
 bool operator==(const BitArray& a, const BitArray& b);

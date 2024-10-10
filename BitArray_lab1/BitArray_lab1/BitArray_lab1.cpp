@@ -1,24 +1,17 @@
-﻿#include <iostream>
-#include "BitArray_lab1.h"
+﻿#include "BitArray_lab1.h"
 
 BitArray::BitArray() : bit_count(0) {}
 
 BitArray::~BitArray() = default;
 
-BitArray::BitArray(int num_bits, unsigned long value) : bit_count(num_bits) {
-	bit_array.resize((num_bits + BYTE_SIZE - 1) / BYTE_SIZE, 0);
+BitArray::BitArray(int num_bits, unsigned long value) : bit_count(num_bits)
+{
 
-	for (int i = 0; i < num_bits && i < sizeof(value) * 8; ++i) {
-		if (value & (1UL << i)) {
-			int byte = i / BYTE_SIZE;
-			int bit = i % BYTE_SIZE;
-			bit_array[byte] |= (1 << bit);
-		}
-	}
 }
 
 
-BitArray::BitArray(const BitArray& b): bit_array(b.bit_array), bit_count(b.bit_count){}
+
+BitArray::BitArray(const BitArray& b) : bit_array(b.bit_array), bit_count(b.bit_count) {}
 
 void BitArray::swap(BitArray& b) {
 	std::swap(bit_array, b.bit_array);
@@ -28,7 +21,7 @@ void BitArray::swap(BitArray& b) {
 BitArray& BitArray::operator=(const BitArray& b) {
 	if (this == &b)
 		return *this;
-	delete [] &bit_array;
+	delete[] & bit_array;
 	bit_count = b.bit_count;
 	bit_array = b.bit_array;
 
@@ -36,13 +29,7 @@ BitArray& BitArray::operator=(const BitArray& b) {
 }
 
 void BitArray::resize(int num_bits, bool value) {
-	if (num_bits < 0)
-		throw::std::invalid_argument("size must be non negative");
-	size_t newSize = (num_bits + BYTE_SIZE - 1) / BYTE_SIZE;
-	if (newSize > bit_count)
-		bit_array.resize(newSize, value ? ~0 : 0);
-	(*this).bit_count = num_bits;
-	bit_array.resize(newSize, value ? 1 : 0);
+
 }
 
 void BitArray::clear() {
@@ -227,9 +214,7 @@ int BitArray::count() const {
 
 
 bool BitArray::operator[](int i) const {
-	int byte = i / BYTE_SIZE;
-	int bit = i % BYTE_SIZE;
-	return bit_array[byte] & (1 << bit_array[bit]);
+
 }
 
 int BitArray::size() const {
@@ -266,7 +251,7 @@ bool operator!=(const BitArray& a, const BitArray& b) {
 BitArray operator&(const BitArray& b1, const BitArray& b2) {
 	if (b1.size() != b1.size())
 		throw std::invalid_argument("different sizes");
-	
+
 	BitArray res = b1;
 	return res.operator&=(b2);
 }
