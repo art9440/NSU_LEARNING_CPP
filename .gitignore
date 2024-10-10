@@ -22,3 +22,4 @@ Release/
 # Игнорировать временные файлы и папки IDE
 *.log
 *.tmp
+/BitArray_lab1/.vs/BitArray_lab1/v17/ipch
