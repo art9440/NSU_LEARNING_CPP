@@ -1,9 +1,0 @@
-﻿  BitArray_lab1.cpp
-C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\BitArray_lab1.cpp(220,12): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\BitArray_lab1.cpp(245,12): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\BitArray_lab1.cpp(257,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\BitArray_lab1.cpp(257,39): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  main.cpp
-  Создание кода...
-C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\BitArray_lab1.cpp(200,1): warning C4715: BitArray::any: значение возвращается не при всех путях выполнения
-  lab1.vcxproj -> C:\Users\user\source\repos\NSU_LEARNING_CPP\lab1\x64\Debug\lab1.exe
