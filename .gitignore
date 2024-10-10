@@ -1,0 +1,22 @@
+ 
+# Игнорировать все временные файлы
+*.obj
+*.pdb
+*.exe
+*.dll
+
+# Игнорировать все временные папки
+build/
+Debug/
+Release/
+
+# Игнорировать конфигурационные файлы Visual Studio
+*.vcxproj.user
+*.vcxproj.filters
+*.suo
+.vscode/
+.idea/
+
+# Игнорировать временные файлы и папки IDE
+*.log
+*.tmp
