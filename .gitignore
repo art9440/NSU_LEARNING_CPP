@@ -18,7 +18,7 @@ Release/
 .vscode/
 .idea/
 *.vsidx
-
+*.opendb
 # Игнорировать временные файлы и папки IDE
 *.log
 *.tmp
