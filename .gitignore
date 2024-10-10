@@ -17,6 +17,7 @@ Release/
 *.suo
 .vscode/
 .idea/
+*.vsidx
 
 # Игнорировать временные файлы и папки IDE
 *.log
