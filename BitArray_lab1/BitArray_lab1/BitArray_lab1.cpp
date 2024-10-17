@@ -369,10 +369,13 @@ BitArray::Iterator::Iterator(const BitArray* bArr, int idx) : bitarr(bArr), inde
 BitArray::Iterator::~Iterator() = default;
 
 BitArray::BitReference BitArray::Iterator::operator*() const {
-    if (index < 0 || index >(*bitarr).size())
+    if (index < 0 || index >= (*bitarr).size())  // Условие >= size(), а не >
         throw std::out_of_range("out of range");
-    return BitReference((*bitarr)[index / BYTE_SIZE], index % BYTE_SIZE);
+
+    // Индексирование непосредственно через `operator[]`, который уже возвращает BitReference
+    return const_cast<BitArray&>(*bitarr)[index];
 }
+
 
 BitArray::Iterator& BitArray::Iterator::operator++()
 {
@@ -413,5 +416,5 @@ BitArray::BitReference::BitReference(const char& ref, int bit_pos)
 
 BitArray::BitReference::operator bool() const
 {
-    return (ref & (1 << bit_position)) != 0;
+    return (ref & (128 >> bit_position)) != 0;
 }

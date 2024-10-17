@@ -278,4 +278,3 @@ TEST(IteratorTests, Autotest) {
         ba[i] = false;
     EXPECT_TRUE(ba.none());
 }
-
