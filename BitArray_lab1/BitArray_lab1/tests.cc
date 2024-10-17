@@ -272,3 +272,10 @@ TEST(IteratorTests, Dicrementation) {
     ASSERT_EQ(it_1 == it_2, true);
 }
 
+TEST(IteratorTests, Autotest) {
+    BitArray ba(8, 255);
+    for (int i = 0; i < ba.size(); i++)
+        ba[i] = false;
+    EXPECT_TRUE(ba.none());
+}
+
