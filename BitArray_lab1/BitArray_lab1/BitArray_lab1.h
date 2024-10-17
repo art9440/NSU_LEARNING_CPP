@@ -14,6 +14,22 @@ private:
     int bit_count;               // Общее количество бит в массиве.
 
 public:
+
+    class BitReference {
+    private:
+        int bit_position;
+        char& ref;
+    public:
+        BitReference(const char& ref, int bit_pos);
+
+        BitReference& operator=(bool val);
+
+        operator bool() const;
+    };
+
+    BitReference operator[](int i);
+
+
     // Конструктор по умолчанию. Инициализирует пустой BitArray.
     BitArray();
 
@@ -113,7 +129,7 @@ public:
         ~Iterator();
 
         // Разыменовывает итератор для доступа к значению текущего бита.
-        bool operator*() const;
+        BitReference operator*() const;
 
         // Оператор инкрементации. Переносит итератор на следующий бит.
         Iterator& operator++();

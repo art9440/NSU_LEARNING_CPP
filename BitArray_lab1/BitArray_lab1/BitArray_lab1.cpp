@@ -281,6 +281,16 @@ bool BitArray::operator[](int i) const
     return (bit_array[byte] & (0x80 >> bit));
 }
 
+BitArray::BitReference BitArray::operator[](int i) {
+    if (i < 0 || i >= bit_count)
+    {
+        throw std::out_of_range("Index out of range");
+    }
+    int byte = i / BYTE_SIZE;
+    int bit = i % BYTE_SIZE;
+    return BitReference(bit_array[byte], bit);
+}
+
 int BitArray::size() const
 {
     return bit_count;
@@ -358,11 +368,14 @@ BitArray::Iterator::Iterator(const BitArray* bArr, int idx) : bitarr(bArr), inde
 
 BitArray::Iterator::~Iterator() = default;
 
-bool BitArray::Iterator::operator*() const {
-    if (index < 0 || index >(*bitarr).size())
+BitArray::BitReference BitArray::Iterator::operator*() const {
+    if (index < 0 || index >= (*bitarr).size())  // Условие >= size(), а не >
         throw std::out_of_range("out of range");
-    return (*bitarr)[index];
+
+    // Индексирование непосредственно через `operator[]`, который уже возвращает BitReference
+    return const_cast<BitArray&>(*bitarr)[index];
 }
+
 
 BitArray::Iterator& BitArray::Iterator::operator++()
 {
@@ -389,3 +402,19 @@ bool BitArray::Iterator::operator!=(const Iterator& iterator) const
 BitArray::Iterator BitArray::begin() { return Iterator(this, 0); }
 
 BitArray::Iterator BitArray::end() { return Iterator(this, bit_count); };
+
+BitArray::BitReference& BitArray::BitReference::operator=(bool val) {
+    if (val)
+        ref |= (1 << bit_position);  
+    else
+        ref &= ~(1 << bit_position); 
+    return *this;
+}
+
+BitArray::BitReference::BitReference(const char& ref, int bit_pos)
+    : ref(const_cast<char&>(ref)), bit_position(bit_pos) {}
+
+BitArray::BitReference::operator bool() const
+{
+    return (ref & (128 >> bit_position)) != 0;
+}
