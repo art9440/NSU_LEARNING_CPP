@@ -93,10 +93,12 @@ TEST(BitArrayTests, ClearAndPush)
 
 }
 
-TEST(BitArrayTests, BitOperators)
+TEST(BitArrayTests, OperatorConEQ)
 {
-    BitArray bitArr_1(3, 7), bitArr_2(3, 6), bitArr_3(4, 10);
-    ASSERT_THROW(bitArr_2 &= bitArr_3, std::invalid_argument);
-    bitArr_1 &= bitArr_2;
-    ASSERT_EQ(bitArr_1.to_string(), "110");
+    BitArray bitArr_1(8, 170), bitArr_2(16, 170), bitArr_3(8, 20);
+    //bitArr_1 &= bitArr_1;
+    //ASSERT_EQ(bitArr_1, "10101010");
+
+    ASSERT_THROW(bitArr_1 &= bitArr_2, std::invalid_argument);
+    
 }

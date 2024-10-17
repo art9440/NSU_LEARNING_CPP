@@ -8,13 +8,14 @@ BitArray::BitArray(int num_bits, unsigned long value) : bit_count(num_bits)
 {
     int size = (num_bits + BYTE_SIZE - 1) / BYTE_SIZE;
     bit_array.resize(size, 0);
+
     for (int i = 0; i < num_bits && i < sizeof(value) * 8; ++i)
     {
-        if (value & (0x80 >> i))
+        if (value & (1UL << i))
         {
-            int byteIndex = (size * 8 - 1 - i) / BYTE_SIZE;
-            int bitIndex = i % BYTE_SIZE;
-            bit_array[byteIndex] |= (0x80 >> bitIndex);
+            int byte = size - 1 - (i / BYTE_SIZE);
+            int bit = i % BYTE_SIZE;
+            bit_array[byte] |= (1 << bit);
         }
     }
 }
@@ -55,10 +56,10 @@ void BitArray::clear()
 
 void BitArray::push_back(bool bit)
 {
-    //std::cout << bit_count << " ";
+    
     (*this).resize(bit_count + 1);
-    //std::cout << bit_count << " ";
-    bit_array[bit_count / BYTE_SIZE] |= 0x80 >> ((bit_count - 1) % BYTE_SIZE);
+   
+    bit_array[bit_count / BYTE_SIZE] |= 128 >> ((bit_count - 1) % BYTE_SIZE);
 }
 
 BitArray& BitArray::operator&=(const BitArray& b)
@@ -136,17 +137,12 @@ BitArray& BitArray::operator<<=(int n)
         std::move(bit_array.begin() + shiftBytes, bit_array.end(), bit_array.begin());
         std::fill(bit_array.end() - shiftBytes, bit_array.end(), 0);
         char overflow = 0;
-        for (std::size_t i = 0; i < numBytes; ++i)
+        for (int i = numBytes - 1; i >= 0; i--)
         {
             char current = bit_array[i];
             bit_array[i] = (current << shiftBits) | overflow;
-            overflow = (current >> (BYTE_SIZE - shiftBits));
+            overflow = (current >> (BYTE_SIZE - shiftBits)) & (255 >> (BYTE_SIZE - shiftBits));
         }
-    }
-    if (bit_count % BYTE_SIZE != 0)
-    {
-        char mask = (1 << (bit_count % BYTE_SIZE)) - 1;
-        bit_array[numBytes - 1] &= mask;
     }
     return *this;
 }
@@ -174,20 +170,13 @@ BitArray& BitArray::operator>>=(int n)
         std::fill(bit_array.end() - shiftBytes, bit_array.end(), 0);
 
         char overflow = 0;
-        for (int i = numBytes - 1; i >= 0; --i)
+        for (int i = 0; i < numBytes; i++)
         {
             char current = bit_array[i];
             bit_array[i] = (current >> shiftBits) | overflow;
             overflow = (current << (BYTE_SIZE - shiftBits));
         }
     }
-
-    if (bit_count % BYTE_SIZE != 0)
-    {
-        char mask = (1 << (bit_count % BYTE_SIZE)) - 1;
-        bit_array[numBytes - 1] &= mask;
-    }
-
     return *this;
 }
 
@@ -205,15 +194,15 @@ BitArray BitArray::operator>>(int n) const
 
 BitArray& BitArray::set(int n, bool val)
 {
-    int byteIndex = n / BYTE_SIZE;
-    int bitIndex = n % BYTE_SIZE;
+    int byte = n / BYTE_SIZE;
+    int bit = n % BYTE_SIZE;
     if (val)
     {
-        bit_array[byteIndex] = (1 << bitIndex);
+        bit_array[byte] = (1 << bit);
     }
     else
     {
-        bit_array[byteIndex] = ~(1 << bitIndex);
+        bit_array[byte] = ~(1 << bit);
     }
     return *this;
 }
@@ -226,9 +215,9 @@ BitArray& BitArray::set()
 
 BitArray& BitArray::reset(int n)
 {
-    int byteIndex = n / BYTE_SIZE;
-    int bitIndex = n % BYTE_SIZE;
-    bit_array[byteIndex] = (0 << bitIndex);
+    int byte = n / BYTE_SIZE;
+    int bit = n % BYTE_SIZE;
+    bit_array[byte] = (0 << bit);
     return *this;
 }
 
@@ -271,8 +260,8 @@ int BitArray::count() const
     for (std::size_t i = 0; i < bit_count; ++i)
     {
         int byte = i / BYTE_SIZE;
-        int bitIndex = i % BYTE_SIZE;
-        if (bit_array[byte] & (1 << bitIndex))
+        int bit = i % BYTE_SIZE;
+        if (bit_array[byte] & (1 << bit))
         {
             countOneBits++;
         }
@@ -286,9 +275,9 @@ bool BitArray::operator[](int i) const
     {
         throw std::out_of_range("Index out of range");
     }
-    int byteIndex = i / BYTE_SIZE;
-    int bitIndex = i % BYTE_SIZE;
-    return (bit_array[byteIndex] & (0x80 >> bitIndex));
+    int byte = i / BYTE_SIZE;
+    int bit = i % BYTE_SIZE;
+    return (bit_array[byte] & (0x80 >> bit));
 }
 
 int BitArray::size() const
@@ -300,10 +289,11 @@ bool BitArray::empty() const
 {
     return bit_count == 0;
 }
+
 std::string BitArray::to_string() const
 {
     std::string res;
-    for (std::size_t i = 0; i < bit_count; ++i)
+    for (std::size_t i = 0; i < bit_count; i++)
     {
         res.push_back((*this)[i] ? '1' : '0');
     }
@@ -362,3 +352,39 @@ BitArray operator^(const BitArray& b1, const BitArray& b2)
     BitArray result = b1;
     return result.operator^=(b2);
 }
+
+BitArray::Iterator::Iterator(const BitArray* bArr, int idx) : bitarr(bArr), index(idx){}
+
+BitArray::Iterator::~Iterator() = default;
+
+bool BitArray::Iterator::operator*() const {
+    if (index < 0 || index >(*bitarr).size())
+        throw std::out_of_range("out of range");
+    return (*bitarr)[index];
+}
+
+BitArray::Iterator& BitArray::Iterator::operator++()
+{
+    index++;
+    return *this;
+}
+
+BitArray::Iterator& BitArray::Iterator::operator--()
+{
+    index--;
+    return *this;
+}
+
+bool BitArray::Iterator::operator==(const Iterator& iterator) const
+{
+    return index == iterator.index;
+}
+
+bool BitArray::Iterator::operator!=(const Iterator& iterator) const
+{
+    return index != iterator.index;
+}
+
+BitArray::Iterator BitArray::begin() { return Iterator(this, 0); }
+
+BitArray::Iterator BitArray::end() { return Iterator(this, bit_count); };

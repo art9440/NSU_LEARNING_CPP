@@ -13,10 +13,7 @@
   },
   "ExpandedNodes": [
     "",
-    "\\BitArray_lab1",
-    "\\BitArray_lab1\\cmake-build-debug\\BitArray.dir",
-    "\\BitArray_lab1\\cmake-build-debug\\x64\\Debug"
+    "\\BitArray_lab1"
   ],
-  "SelectedNode": "\\BitArray_lab1\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
