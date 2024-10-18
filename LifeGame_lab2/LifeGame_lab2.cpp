@@ -1,8 +1,9 @@
 ﻿#include <iostream>
+#include "FileManager.h"
+#include "ParseConsole.h"
 #include "Universe.h"
 
 int main()
 {
-	std::cout << "Hello CMake." << std::endl;
 	return 0;
 }
