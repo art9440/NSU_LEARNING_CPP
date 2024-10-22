@@ -172,7 +172,7 @@ BitArray& BitArray::operator>>=(int n)
         for (int i = numBytes - 1; i >= 0; --i)
         {
             char current = bit_array[i];
-            bit_array[i] = (current >> shiftBits) | overflow;
+            bit_array[i] = (current >> shiftBits) & (255 >> (shiftBits)) | overflow;
             overflow = current << (BYTE_SIZE - shiftBits);
         }
     }

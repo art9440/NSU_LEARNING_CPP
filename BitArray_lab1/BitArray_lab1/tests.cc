@@ -153,8 +153,8 @@ TEST(BitArrayTests, OperatorRShiftEQ){
     ASSERT_EQ(bitArr_2.to_string(), "0000000000000000");
     BitArray bitArr_3(16, 43520);
     ASSERT_EQ(bitArr_3.to_string(), "1010101000000000");
-    bitArr_3 >>= 8;
-    ASSERT_EQ(bitArr_3.to_string(), "0000000010101010");
+    bitArr_3 >>= 3;
+    ASSERT_EQ(bitArr_3.to_string(), "0001010100000000");
 }
 
 TEST(BitArrayTests, OperatorLShift) {
