@@ -172,7 +172,7 @@ BitArray& BitArray::operator>>=(int n)
         for (int i = numBytes - 1; i >= 0; --i)
         {
             char current = bit_array[i];
-            bit_array[i] = (current >> shiftBits) | overflow;
+            bit_array[i] = (current >> shiftBits) & (255 >> (shiftBits)) | overflow;
             overflow = current << (BYTE_SIZE - shiftBits);
         }
     }
@@ -369,7 +369,7 @@ BitArray::Iterator::Iterator(const BitArray* bArr, int idx) : bitarr(bArr), inde
 BitArray::Iterator::~Iterator() = default;
 
 BitArray::BitReference BitArray::Iterator::operator*() const {
-    if (index < 0 || index >= (*bitarr).size())  // Условие >= size(), а не >
+    if (index < 0 || index >= (*bitarr).size())
         throw std::out_of_range("out of range");
 
     // Индексирование непосредственно через `operator[]`, который уже возвращает BitReference
