@@ -14,23 +14,23 @@ TEST(BitArrayTests, ConstructorWithValues) {
     BitArray bitArr(16, 170);  // 170 = 10101010 (битовое представление)
     ASSERT_EQ(bitArr.size(), 16);
 
-    // Проверьте, что биты правильно распределены по массиву
-    ASSERT_EQ(bitArr[0], 0);  // Младший бит в 0 позиции
+    
+    ASSERT_EQ(bitArr[0], 0); 
     ASSERT_EQ(bitArr[1], 0);
     ASSERT_EQ(bitArr[2], 0);
     ASSERT_EQ(bitArr[3], 0);
     ASSERT_EQ(bitArr[4], 0);
     ASSERT_EQ(bitArr[5], 0);
     ASSERT_EQ(bitArr[6], 0);
-    ASSERT_EQ(bitArr[7], 0);  // Старший бит в байте (1)
-    ASSERT_EQ(bitArr[8], 1);  // Следующий байт (младший бит)
+    ASSERT_EQ(bitArr[7], 0);  
+    ASSERT_EQ(bitArr[8], 1);  
     ASSERT_EQ(bitArr[9], 0);
     ASSERT_EQ(bitArr[10], 1);
     ASSERT_EQ(bitArr[11], 0);
     ASSERT_EQ(bitArr[12], 1);
     ASSERT_EQ(bitArr[13], 0);
     ASSERT_EQ(bitArr[14], 1);
-    ASSERT_EQ(bitArr[15], 0);  // Старший бит второго байта (0)
+    ASSERT_EQ(bitArr[15], 0);  
 }
 
 

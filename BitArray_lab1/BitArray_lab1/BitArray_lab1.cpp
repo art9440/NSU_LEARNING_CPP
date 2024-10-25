@@ -278,7 +278,7 @@ bool BitArray::operator[](int i) const
     }
     int byte = i / BYTE_SIZE;
     int bit = i % BYTE_SIZE;
-    return (bit_array[byte] & (0x80 >> bit));
+    return (bit_array[byte] & (128 >> bit));
 }
 
 BitArray::BitReference BitArray::operator[](int i) {
@@ -338,7 +338,7 @@ BitArray operator&(const BitArray& b1, const BitArray& b2)
 {
     if (b1.size() != b1.size())
     {
-        throw std::invalid_argument("Array sizes do not match");
+        throw std::invalid_argument("sizes do not match");
     }
     BitArray result = b1;
     return result.operator&=(b2);
@@ -348,7 +348,7 @@ BitArray operator|(const BitArray& b1, const BitArray& b2)
 {
     if (b1.size() != b1.size())
     {
-        throw std::invalid_argument("Array sizes do not match");
+        throw std::invalid_argument("sizes do not match");
     }
     BitArray result = b1;
     return result.operator|=(b2);
@@ -358,7 +358,7 @@ BitArray operator^(const BitArray& b1, const BitArray& b2)
 {
     if (b1.size() != b1.size())
     {
-        throw std::invalid_argument("Array sizes do not match");
+        throw std::invalid_argument("sizes do not match");
     }
     BitArray result = b1;
     return result.operator^=(b2);
@@ -372,7 +372,7 @@ BitArray::BitReference BitArray::Iterator::operator*() const {
     if (index < 0 || index >= (*bitarr).size())
         throw std::out_of_range("out of range");
 
-    // Индексирование непосредственно через `operator[]`, который уже возвращает BitReference
+    
     return const_cast<BitArray&>(*bitarr)[index];
 }
 
