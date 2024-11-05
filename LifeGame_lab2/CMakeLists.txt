@@ -13,7 +13,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 
-add_executable (LifeGame_lab2 LifeGame_lab2.cpp ParseConsole.cpp ParseConsole.h)
+add_executable (LifeGame_lab2 LifeGame_lab2.cpp ParseConsole.cpp ParseConsole.h Universe.cpp 
+Universe.h Cell.cpp Cell.h)
 
 enable_testing()
 

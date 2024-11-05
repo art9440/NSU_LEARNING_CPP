@@ -1,23 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <algorithm>
-#include <string>
+#ifndef CELL_H
+#define CELL_H
 
 class Cell {
-public:
-    // Конструктор, задающий начальное состояние клетки
-    Cell(bool is_alive = false) : alive(is_alive) {}
-
-    // Метод для проверки, жива ли клетка
-    bool isAlive() const { return alive; }
-
-    // Метод для установки состояния клетки
-    void setAlive(bool state) { alive = state; }
-
-    // Переключение состояния клетки (опционально)
-    void toggle() { alive = !alive; }
-
 private:
-    bool alive; // Состояние клетки: true - жива, false - мертва
-}; 
+    bool alive; // true, если клетка жива; false, если мертва
+public:
+    // Конструктор по умолчанию создает мертвую клетку
+    Cell(bool is_alive = false);
+
+    // Возвращает true, если клетка жива
+    bool isAlive() const;
+
+    // Устанавливает состояние клетки (жива/мертва)
+    void setAlive(bool state);
+
+    // Переключает состояние клетки (если была жива — становится мертвой, и наоборот)
+    void toggle();
+
+
+};
+
+#endif // CELL_H
+
