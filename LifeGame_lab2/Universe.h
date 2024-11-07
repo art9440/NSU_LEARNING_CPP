@@ -1,6 +1,5 @@
 #ifndef UNIVERSE_H
 #define UNIVERSE_H
-
 #include <vector>
 #include <string>
 #include "Cell.h"
@@ -46,9 +45,12 @@ public:
     bool getCell(int x, int y) const;
 
     // Методы для сохранения и загрузки состояния вселенной из файлов
-    bool saveToFile(const std::string& filename) const;
-    bool loadFromFile(const std::string& filename); // Загружает состояние и правило из файла
+    bool saveToStream(std::ostream& os) const;
+    bool loadFromStream(std::istream& is);
 
+    friend std::istream& operator>>(std::istream& is, Universe& universe);
+    friend std::ostream& operator<<(std::ostream& os, const Universe& universe);
+    friend class TestUniverse;
 };
 
 #endif // UNIVERSE_H
