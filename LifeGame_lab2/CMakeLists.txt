@@ -1,34 +1,45 @@
-﻿
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.8)
 
-project ("LifeGame_lab2")
+project(LifeGame_lab2)
 
+# Подключаем Google Test
 include(FetchContent)
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
-# For Windows: Prevent overriding the parent project's compiler/linker settings
+# Для Windows: предотвращаем переопределение настроек компилятора/ссылок
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+# Создаем основное исполняемое приложение
+add_executable(LifeGame_lab2 
+  LifeGame_lab2.cpp 
+  ParseConsole.cpp 
+  Universe.cpp 
+  Cell.cpp
+)
 
-add_executable (LifeGame_lab2 LifeGame_lab2.cpp ParseConsole.cpp ParseConsole.h Universe.cpp 
-Universe.h Cell.cpp Cell.h)
+# Создаем библиотеку для кода игры, чтобы можно было переиспользовать в тестах
+add_library(LifeGameLib
+  ParseConsole.cpp 
+  Universe.cpp 
+  Cell.cpp
+)
 
+# Включаем тестирование
 enable_testing()
 
-#add_executable(
- # hello_test
- # tests.cc
-  #LifeGame_lab2.cpp
-  #)
+# Создаем исполняемый файл для тестов
+add_executable(hello_test tests.cc)
 
-#target_link_libraries(
- # hello_test
-#  GTest::gtest_main
-#)
+# Подключаем Google Test и библиотеку LifeGameLib к тестам
+target_link_libraries(
+  hello_test
+  GTest::gtest_main
+  LifeGameLib
+)
 
-#include(GoogleTest)
-#gtest_discover_tests(hello_test)
-
+# Включаем автоматическое обнаружение тестов
+include(GoogleTest)
+gtest_discover_tests(hello_test)
