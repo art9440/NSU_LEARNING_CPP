@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Mode (offline=true, online=false): " << parser.get_mode() << "\n";
 
     // Создаем вселенную
-    int grid_size = 10; // Размер вселенной
+    int grid_size = 20; // Размер вселенной
     Universe universe(grid_size);
 
     // Инициализируем вселенную, передавая parser

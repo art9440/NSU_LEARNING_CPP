@@ -1,8 +1,10 @@
 #include "Universe.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
-
-Universe::Universe(int grid_size) : grid_size(grid_size), 
-grid(grid_size, std::vector<Cell>(grid_size)) {}
+Universe::Universe(int grid_size)
+    : grid_size(grid_size), grid(grid_size, std::vector<Cell>(grid_size)) {}
 
 bool Universe::initialize(const ParseConsole& parser) {
     std::string inputFile = parser.get_input_file();
@@ -31,9 +33,8 @@ bool Universe::loadFromFile(const std::string& filename) {
     }
 
     std::string str;
-    bool found_rule = false, found_universe = false;
+    bool found_rule = false, found_name = false;
 
-    // Проверка формата первой строки
     if (getline(input_file, str)) {
         if (str != "Life 1.06") {
             std::cerr << "Error: incorrect file format, expected 'Life 1.06' header." << std::endl;
@@ -45,23 +46,24 @@ bool Universe::loadFromFile(const std::string& filename) {
         return false;
     }
 
-    // Основной цикл чтения файла
     while (getline(input_file, str)) {
         if (str[0] == '#') {
             if (str[1] == 'N') {
                 universe_name = str.substr(3);
-                found_universe = true;
+                found_name = true;
             }
             else if (str[1] == 'R') {
                 universe_rule = str.substr(3);
                 found_rule = true;
+                std::cout << "Loaded rule: " << universe_rule << "\n";
+                parseRule(universe_rule); // Вызываем parseRule после загрузки правила
             }
         }
         else {
             int x, y;
             if (sscanf(str.c_str(), "%d %d", &x, &y) == 2) {
                 if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size()) {
-                    grid[x][y] = true;
+                    grid[x][y].setAlive(true); // Устанавливаем клетку как живую
                 }
                 else {
                     std::cerr << "Error: coordinates out of range: " << x << ',' << y << std::endl;
@@ -72,18 +74,16 @@ bool Universe::loadFromFile(const std::string& filename) {
                 std::cerr << "Error: incorrect format for coordinates: " << str << std::endl;
             }
         }
-
-        
     }
-    //Предупреждения о пропущенных параметрах
+
     if (!found_rule)
         std::cerr << "Warning: missing rule in the file: " << filename << std::endl;
-    if (!found_universe)
+    if (!found_name)
         std::cerr << "Warning: missing universe name in the file: " << filename << std::endl;
 
+    input_file.close();
     return true;
 }
-
 
 void Universe::runOffline(int iterations, const std::string& outputFile) {
     std::cout << "Starting offline run for " << iterations << " iterations.\n";
@@ -99,24 +99,26 @@ void Universe::runOffline(int iterations, const std::string& outputFile) {
     }
 }
 
-
 void Universe::tick(int iterations) {
     for (int i = 0; i < iterations; ++i) {
         std::vector<std::vector<Cell>> newGrid = grid;
 
         for (int x = 0; x < grid_size; ++x) {
             for (int y = 0; y < grid_size; ++y) {
-                newGrid[x][y].setAlive(willBeAlive(x, y));
+                bool aliveNext = willBeAlive(x, y);
+                newGrid[x][y].setAlive(aliveNext);
             }
         }
         grid = newGrid;
-        currentIteration++; // Увеличиваем счётчик текущей итерации
+        currentIteration++;
     }
 }
 
 bool Universe::willBeAlive(int x, int y) const {
     int aliveNeighbors = countAliveNeighbors(x, y);
-    if (grid[x][y].isAlive()) {
+    bool isCurrentlyAlive = grid[x][y].isAlive();
+
+    if (isCurrentlyAlive) {
         return std::find(survivalConditions.begin(), survivalConditions.end(), aliveNeighbors) != survivalConditions.end();
     }
     else {
@@ -159,6 +161,12 @@ void Universe::parseRule(const std::string& rule) {
             }
         }
     }
+
+    std::cout << "Parsed rule - Birth: ";
+    for (int b : birthConditions) std::cout << b << " ";
+    std::cout << "\nSurvival: ";
+    for (int s : survivalConditions) std::cout << s << " ";
+    std::cout << std::endl;
 }
 
 void Universe::display() const {
@@ -210,7 +218,6 @@ void Universe::runOnline() {
     }
 }
 
-
 bool Universe::saveToFile(const std::string& filename) const {
     std::ofstream output_file(filename);
     if (!output_file.is_open()) {
@@ -231,7 +238,6 @@ bool Universe::saveToFile(const std::string& filename) const {
     }
 
     output_file.close();
-    std::cout << "File saved successfully: " << filename << std::endl;  // Добавьте эту строку
+    std::cout << "File saved successfully: " << filename << std::endl;
     return true;
 }
-
