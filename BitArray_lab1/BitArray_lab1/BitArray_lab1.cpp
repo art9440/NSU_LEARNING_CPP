@@ -151,6 +151,7 @@ BitArray& BitArray::operator>>=(int n)
     int shiftBytes = n / BYTE_SIZE;
     int shiftBits = n % BYTE_SIZE;
     int numBytes = (bit_count + BYTE_SIZE - 1) / BYTE_SIZE;
+    
 
     if (n >= bit_count)
     {
@@ -158,26 +159,32 @@ BitArray& BitArray::operator>>=(int n)
         return *this;
     }
 
-    
-    if (shiftBytes > 0)
+    if (shiftBits == 0)
     {
-        std::copy_backward(bit_array.begin(), bit_array.end() - shiftBytes, bit_array.end());
+        std::move(bit_array.begin(), bit_array.end() - shiftBytes, bit_array.begin() + shiftBytes);
         std::fill(bit_array.begin(), bit_array.begin() + shiftBytes, 0);
     }
-
-    
-    if (shiftBits > 0)
+    else
     {
+        std::move(bit_array.begin(), bit_array.end() - shiftBytes, bit_array.begin() + shiftBytes);
+        std::fill(bit_array.begin(), bit_array.begin() + shiftBytes, 0);
+
         char overflow = 0;
-        for (int i = numBytes - 1; i >= 0; --i)
+        for (int i = 0; i < numBytes; i++)
         {
             char current = bit_array[i];
-            bit_array[i] = (current >> shiftBits) & (255 >> (shiftBits)) | overflow;
-            overflow = current << (BYTE_SIZE - shiftBits);
+            bit_array[i] = ((current >> shiftBits) & (255 >> (shiftBits)) | overflow);
+            overflow = (current << (BYTE_SIZE - shiftBits));
         }
     }
+
     return *this;
 }
+
+
+
+
+
 
 
 
