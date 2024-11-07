@@ -1,6 +1,6 @@
 #include "Universe.h"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 
 Universe::Universe(int grid_size)
@@ -10,13 +10,15 @@ bool Universe::initialize(const ParseConsole& parser) {
     std::string inputFile = parser.get_input_file();
 
     if (!inputFile.empty() && inputFile != "none") {
-        if (!loadFromFile(inputFile)) {
-            std::cerr << "Error: Failed to load universe from file: " << inputFile << "\n";
-            return false;
-        }
-        else {
+        std::ifstream file(inputFile);
+        if (file) {
+            file >> *this;  // Используем перегруженный оператор >>
             std::cout << "Loaded universe from file: " << inputFile << "\n";
             return true;
+        }
+        else {
+            std::cerr << "Error: Failed to open file: " << inputFile << "\n";
+            return false;
         }
     }
     else {
@@ -25,72 +27,14 @@ bool Universe::initialize(const ParseConsole& parser) {
     }
 }
 
-bool Universe::loadFromFile(const std::string& filename) {
-    std::ifstream input_file(filename);
-    if (!input_file.is_open()) {
-        std::cerr << "Error: could not open file: " << filename << std::endl;
-        return false;
-    }
-
-    std::string str;
-    bool found_rule = false, found_name = false;
-
-    if (getline(input_file, str)) {
-        if (str != "Life 1.06") {
-            std::cerr << "Error: incorrect file format, expected 'Life 1.06' header." << std::endl;
-            return false;
-        }
-    }
-    else {
-        std::cerr << "Error: file is empty or cannot read: " << filename << std::endl;
-        return false;
-    }
-
-    while (getline(input_file, str)) {
-        if (str[0] == '#') {
-            if (str[1] == 'N') {
-                universe_name = str.substr(3);
-                found_name = true;
-            }
-            else if (str[1] == 'R') {
-                universe_rule = str.substr(3);
-                found_rule = true;
-                std::cout << "Loaded rule: " << universe_rule << "\n";
-                parseRule(universe_rule); // Вызываем parseRule после загрузки правила
-            }
-        }
-        else {
-            int x, y;
-            if (sscanf(str.c_str(), "%d %d", &x, &y) == 2) {
-                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size()) {
-                    grid[x][y].setAlive(true); // Устанавливаем клетку как живую
-                }
-                else {
-                    std::cerr << "Error: coordinates out of range: " << x << ',' << y << std::endl;
-                    return false;
-                }
-            }
-            else {
-                std::cerr << "Error: incorrect format for coordinates: " << str << std::endl;
-            }
-        }
-    }
-
-    if (!found_rule)
-        std::cerr << "Warning: missing rule in the file: " << filename << std::endl;
-    if (!found_name)
-        std::cerr << "Warning: missing universe name in the file: " << filename << std::endl;
-
-    input_file.close();
-    return true;
-}
-
 void Universe::runOffline(int iterations, const std::string& outputFile) {
     std::cout << "Starting offline run for " << iterations << " iterations.\n";
     tick(iterations);
     display();
     if (!outputFile.empty()) {
-        if (saveToFile(outputFile)) {
+        std::ofstream file(outputFile);
+        if (file) {
+            file << *this;  // Используем перегруженный оператор <<
             std::cout << "Saved final universe state to " << outputFile << "\n";
         }
         else {
@@ -208,8 +152,13 @@ void Universe::runOnline() {
         else if (command == "dump") {
             std::string file;
             std::cin >> file;
-            if (saveToFile(file)) {
+            std::ofstream outputFile(file);
+            if (outputFile) {
+                outputFile << *this;  // Используем перегруженный оператор <<
                 std::cout << "Saved universe to " << file << "\n";
+            }
+            else {
+                std::cerr << "Error: Could not open file for writing: " << file << "\n";
             }
         }
         else {
@@ -218,26 +167,86 @@ void Universe::runOnline() {
     }
 }
 
-bool Universe::saveToFile(const std::string& filename) const {
-    std::ofstream output_file(filename);
-    if (!output_file.is_open()) {
-        std::cerr << "Error: Could not open file for writing: " << filename << std::endl;
+bool Universe::loadFromStream(std::istream& is) {
+    std::string str;
+    bool found_rule = false, found_name = false;
+
+    if (getline(is, str)) {
+        if (str != "Life 1.06") {
+            std::cerr << "Error: incorrect file format, expected 'Life 1.06' header." << std::endl;
+            return false;
+        }
+    }
+    else {
+        std::cerr << "Error: stream is empty or cannot read.\n";
         return false;
     }
 
-    output_file << "Life 1.06\n";
-    output_file << "#N " << universe_name << "\n";
-    output_file << "#R " << universe_rule << "\n";
-
-    for (int x = 0; x < grid_size; ++x) {
-        for (int y = 0; y < grid_size; ++y) {
-            if (grid[x][y].isAlive()) {
-                output_file << x << " " << y << "\n";
+    while (getline(is, str)) {
+        if (str[0] == '#') {
+            if (str[1] == 'N') {
+                universe_name = str.substr(3);
+                found_name = true;
+            }
+            else if (str[1] == 'R') {
+                universe_rule = str.substr(3);
+                found_rule = true;
+                parseRule(universe_rule);
+            }
+        }
+        else {
+            int x, y;
+            if (sscanf(str.c_str(), "%d %d", &x, &y) == 2) {
+                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size()) {
+                    grid[x][y].setAlive(true);
+                }
+                else {
+                    std::cerr << "Error: coordinates out of range: " << x << ',' << y << std::endl;
+                    return false;
+                }
+            }
+            else {
+                std::cerr << "Error: incorrect format for coordinates: " << str << std::endl;
             }
         }
     }
 
-    output_file.close();
-    std::cout << "File saved successfully: " << filename << std::endl;
+    if (!found_rule)
+        std::cerr << "Warning: missing rule in the stream.\n";
+    if (!found_name)
+        std::cerr << "Warning: missing universe name in the stream.\n";
+
     return true;
+}
+
+bool Universe::saveToStream(std::ostream& os) const {
+    os << "Life 1.06\n";
+    os << "#N " << universe_name << "\n";
+    os << "#R " << universe_rule << "\n";
+
+    for (int x = 0; x < grid_size; ++x) {
+        for (int y = 0; y < grid_size; ++y) {
+            if (grid[x][y].isAlive()) {
+                os << x << " " << y << "\n";
+            }
+        }
+    }
+
+    return true;
+}
+
+// Перегрузка оператора >>
+std::istream& operator>>(std::istream& is, Universe& universe) {
+    if (!universe.loadFromStream(is)) {
+        std::cerr << "Error: Failed to load universe from stream.\n";
+    }
+    return is;
+}
+
+// Перегрузка оператора <<
+std::ostream& operator<<(std::ostream& os, const Universe& universe) {
+    if (!universe.saveToStream(os)) {
+        std::cerr << "Error: Failed to save universe to stream.\n";
+    }
+    return os;
 }
