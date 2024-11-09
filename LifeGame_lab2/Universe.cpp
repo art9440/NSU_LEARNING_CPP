@@ -6,13 +6,27 @@
 Universe::Universe(int grid_size)
     : grid_size(grid_size), grid(grid_size, std::vector<Cell>(grid_size)) {}
 
+Universe::~Universe() = default;
+
 bool Universe::initialize(const ParseConsole& parser) {
     std::string inputFile = parser.get_input_file();
 
     if (!inputFile.empty() && inputFile != "none") {
         std::ifstream file(inputFile);
         if (file) {
-            file >> *this;  // Используем перегруженный оператор >>
+            file >> *this;  
+            std::cout << "Loaded universe from file: " << inputFile << "\n";
+            return true;
+        }
+        else {
+            std::cerr << "Error: Failed to open file: " << inputFile << "\n";
+            return false;
+        }
+    }
+    else if (inputFile == "none") {
+        std::ifstream file("infinite.txt");
+        if (file) {
+            file >> *this;
             std::cout << "Loaded universe from file: " << inputFile << "\n";
             return true;
         }
@@ -34,7 +48,7 @@ void Universe::runOffline(int iterations, const std::string& outputFile) {
     if (!outputFile.empty()) {
         std::ofstream file(outputFile);
         if (file) {
-            file << *this;  // Используем перегруженный оператор <<
+            file << *this;  
             std::cout << "Saved final universe state to " << outputFile << "\n";
         }
         else {
@@ -235,7 +249,7 @@ bool Universe::saveToStream(std::ostream& os) const {
     return true;
 }
 
-// Перегрузка оператора >>
+
 std::istream& operator>>(std::istream& is, Universe& universe) {
     if (!universe.loadFromStream(is)) {
         std::cerr << "Error: Failed to load universe from stream.\n";
@@ -243,7 +257,7 @@ std::istream& operator>>(std::istream& is, Universe& universe) {
     return is;
 }
 
-// Перегрузка оператора <<
+
 std::ostream& operator<<(std::ostream& os, const Universe& universe) {
     if (!universe.saveToStream(os)) {
         std::cerr << "Error: Failed to save universe to stream.\n";
