@@ -69,6 +69,7 @@ void Universe::tick(int iterations) {
         }
         grid = newGrid;
         currentIteration++;
+        display();
     }
 }
 
@@ -168,7 +169,7 @@ void Universe::runOnline() {
             std::cin >> file;
             std::ofstream outputFile(file);
             if (outputFile) {
-                outputFile << *this;  // Используем перегруженный оператор <<
+                outputFile << *this; 
                 std::cout << "Saved universe to " << file << "\n";
             }
             else {

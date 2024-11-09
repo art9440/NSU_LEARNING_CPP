@@ -55,7 +55,6 @@ public:
 
     friend std::istream& operator>>(std::istream& is, Universe& universe);
     friend std::ostream& operator<<(std::ostream& os, const Universe& universe);
-    friend class TestUniverse;
 };
 
 #endif // UNIVERSE_H

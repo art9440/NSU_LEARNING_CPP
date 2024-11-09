@@ -16,15 +16,14 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    // Отладка параметров
+    
     std::cout << "Input file: " << parser.get_input_file() << "\n";
     std::cout << "Output file: " << parser.get_output_file() << "\n";
     std::cout << "Iterations: " << parser.get_iterations() << "\n";
     std::cout << "Mode (offline=true, online=false): " << parser.get_mode() << "\n";
 
-    // Создаем вселенную
-    int grid_size = 20; // Размер вселенной
-    Universe universe(grid_size);
+    // Создаем вселенную 
+    Universe universe(20);
 
     // Инициализируем вселенную, передавая parser
     if (!universe.initialize(parser)) {
