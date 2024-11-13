@@ -3,7 +3,7 @@
 
 class Cell {
 private:
-    bool alive; // true, если клетка жива; false, если мертва
+    bool alive; 
 public:
     // Конструктор по умолчанию создает мертвую клетку
     Cell(bool is_alive = false);
@@ -20,5 +20,5 @@ public:
 
 };
 
-#endif // CELL_H
+#endif 
 

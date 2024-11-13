@@ -22,10 +22,15 @@ private:
     bool willBeAlive(int x, int y) const;       // ѕровер€ет, будет ли клетка жива на следующем шаге
     int countAliveNeighbors(int x, int y) const; // ѕодсчитывает количество живых соседей
     void parseRule(const std::string& rule);    // –азбирает правило после загрузки из файла
+    friend void TestWillBeAlive_SurvivalTest();
+    friend void TestWillBeAlive_BirthTest();
+    friend void TestCountAliveNeighbors_AllNeighbors();
+    friend void TestCountAliveNeighbors_EdgeWrapping();
 
 public:
     //  онструктор, принимающий только размер вселенной
     Universe(int grid_size);
+    ~Universe();
 
     // ћетод дл€ инициализации вселенной, возвращает true при успешной загрузке
     bool initialize(const ParseConsole& parser);
@@ -50,7 +55,6 @@ public:
 
     friend std::istream& operator>>(std::istream& is, Universe& universe);
     friend std::ostream& operator<<(std::ostream& os, const Universe& universe);
-    friend class TestUniverse;
 };
 
 #endif // UNIVERSE_H
