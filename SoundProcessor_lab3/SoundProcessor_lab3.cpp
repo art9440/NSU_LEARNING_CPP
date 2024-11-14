@@ -1,12 +1,8 @@
-﻿// SoundProcessor_lab3.cpp: определяет точку входа для приложения.
-//
+﻿#include <iostream>
+#include "WavFile.h"
 
-#include "SoundProcessor_lab3.h"
 
-using namespace std;
-
-int main()
+int main(int argc, char *argv[])
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+	
 }
