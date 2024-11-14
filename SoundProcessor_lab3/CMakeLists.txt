@@ -12,7 +12,8 @@ endif()
 project ("SoundProcessor_lab3")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (SoundProcessor_lab3 "SoundProcessor_lab3.cpp" "SoundProcessor_lab3.h" "WavFile.cpp" "WavFile.h")
+add_executable (SoundProcessor_lab3 "SoundProcessor_lab3.cpp"  "WavFile.cpp" "WavFile.h" 
+"Converter.cpp" "Converter.h" "ParseConsole.cpp" "ParseConsole.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET SoundProcessor_lab3 PROPERTY CXX_STANDARD 20)
