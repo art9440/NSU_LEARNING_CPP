@@ -7,6 +7,7 @@ std::vector<std::string> ParseConsole::get_input_files() const { return input_fi
 std::string ParseConsole::get_output_file() const { return output_file; }
 bool ParseConsole::use_help() const { return use_help_; }
 bool ParseConsole::hasConfig() const { return !config_file.empty(); }
+std::string ParseConsole::get_config_file() const { return config_file; }
 
 bool ParseConsole::parsing(int argc, char* argv[]) {
 	if (argc < 5) {
@@ -51,6 +52,8 @@ bool ParseConsole::parsing(int argc, char* argv[]) {
 		std::cerr << "No input files." << std::endl;
 		return false;
 	}
+
+	return true;
 }
 
 void ParseConsole::help_me() {
@@ -61,4 +64,10 @@ void ParseConsole::help_me() {
 		<< "  <output.wav>      ”казать им€ выходного WAV-файла\n"
 		<< "  <input1.wav>      ”казать как минимум один входной WAV-файл\n"
 		<< "  [<input2.wav> ...] ”казать дополнительные входные WAV-файлы, если они есть\n";
+}
+
+void ParseConsole::Show_input_files(std::vector<std::string> input_files) {
+	for (int i = 0; i < input_files.size(); i++) {
+		std::cout << input_files[i] << std::endl;
+	}
 }
