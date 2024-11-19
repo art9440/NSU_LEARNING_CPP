@@ -22,4 +22,22 @@ int main(int argc, char *argv[])
     std::cout << "output_file:" << parser.get_output_file() << "\n";
     std::cout << "input_files:" << std::endl;
     parser.Show_input_files(parser.get_input_files());
+
+    std::vector<WavFile> inputWavs;
+    for (const std::string& inputFile : parser.get_input_files()) {
+        WavFile inputWav;
+        if (!inputWav.read(inputFile)) {
+            std::cerr << "Can`t read file: " << inputFile << std::endl;
+            return 1;
+        }
+        inputWavs.push_back(std::move(inputWav));
+    }
+
+    std::vector<int16_t> samples = inputWavs[0].getSamples();
+
+
+    std::vector<Converter*> converters;
+
+
+
 }

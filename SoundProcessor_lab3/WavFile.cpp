@@ -13,7 +13,8 @@ bool WavFile::read(const std::string& filename) {
     }
 
     file.read(reinterpret_cast<char*>(&header), sizeof(WavHeader));
-    if (header.audioFormat != 1 || header.numChannels != 1 || header.bitsPerSample != 16 || header.sampleRate != 44100) {
+    if (header.audioFormat != 1 || header.numChannels != 1 || header.bitsPerSample != 16 
+        || header.sampleRate != 44100) {
         std::cerr << "Ошибка: неподдерживаемый формат файла WAV." << std::endl;
         return false;
     }
