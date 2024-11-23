@@ -2,6 +2,7 @@
 #include "WavFile.h"
 #include "ParseConsole.h"
 #include "Converter.h"
+#include "ParseConfig.h"
 
 
 int main(int argc, char *argv[])
@@ -33,11 +34,34 @@ int main(int argc, char *argv[])
         inputWavs.push_back(std::move(inputWav));
     }
 
-    std::vector<int16_t> samples = inputWavs[0].getSamples();
+    if (inputWavs.empty()) {
+        std::cerr << "No input files." << std::endl;
+        return 1;
+    }
 
-
+    ConfigParser configParser;
     std::vector<Converter*> converters;
+    if (!configParser.readConfigFile(parser.get_config_file(), converters)) {
+        std::cerr << "Can`t read config file: " << parser.get_config_file() << std::endl;
+        return 1;
+    }
+    std::vector<int16_t> samples = inputWavs[0].getSamples();
+    
+    for (Converter* converter : converters) {
+        samples = converter->process(samples);
+    }
 
+    for (Converter* converter : converters) {
+        delete converter;
+    }
 
+    WavFile outputWav;
+    outputWav.getSamples() = samples; // Задаем обработанные сэмплы
+    if (!outputWav.write(parser.get_output_file())) {
+        std::cerr << "Can`t write to file: " << parser.get_output_file() << std::endl;
+        return 1;
+    }
 
+    std::cout << "Processing is done." << std::endl;
+    return 0;
 }

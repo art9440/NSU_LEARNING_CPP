@@ -66,21 +66,33 @@ bool ConfigParser::parseLine(const std::string& line, std::string& command, std:
 
 Converter* ConfigParser::createConverter(const std::string& command, const std::vector<int>& params) {
     if (command == "mute") {
-        // Создаем MuteConverter с параметрами start и end
-        return new MuteConverter(params[0], params[1]);
+        // Проверяем количество параметров
+        if (params.size() < 2) {
+            std::cerr << "Ошибка: недостаточно параметров для mute (требуется 2)." << std::endl;
+            return nullptr;
+        }
+        return new MuteConverter(params[0], params[1]); // start и end
     }
     else if (command == "mix") {
-        // Создаем MixConverter. Требуется дополнительный поток (например, params[1] указывает на индекс)
-        // Здесь нужно получить дополнительный поток, например, из inputWavs
-        // Допустим, что это упрощенный пример
-        std::vector<int16_t> additionalStream; // Нужно передать настоящий поток
-        return new MixConverter(additionalStream, params[0]);
+        // Проверяем параметры
+        if (params.size() < 2) {
+            std::cerr << "Ошибка: недостаточно параметров для mix (требуется минимум 2)." << std::endl;
+            return nullptr;
+        }
+        std::vector<int16_t> additionalStream; // TODO: передать настоящий поток
+        return new MixConverter(additionalStream, params[0]); // Дополнительный поток и позиция вставки
     }
     else if (command == "echo") {
-        // Создаем EchoConverter с параметрами delay и decay
+        // Проверяем параметры
+        if (params.size() < 1) {
+            std::cerr << "Ошибка: недостаточно параметров для echo (требуется минимум 1)." << std::endl;
+            return nullptr;
+        }
         int delay = params[0];
         float decay = params.size() > 1 ? static_cast<float>(params[1]) / 100.0f : 0.5f;
         return new EchoConverter(delay, decay);
     }
+    std::cerr << "Ошибка: неизвестная команда " << command << std::endl;
     return nullptr;
 }
+
