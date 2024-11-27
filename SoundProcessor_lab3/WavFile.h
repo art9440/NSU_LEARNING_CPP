@@ -1,11 +1,16 @@
+#ifndef WAVFILE_H
+#define WAVFILE_H
+
 #include <string>
-#include <iostream>
 #include <vector>
+#include <cstdint>
+#include <iostream>
 #include <fstream>
 
 class WavFile {
 public:
     WavFile();
+
     bool read(const std::string& filename);
     bool write(const std::string& filename);
 
@@ -32,5 +37,9 @@ private:
 
     WavHeader header;
     std::vector<int16_t> samples;
-    
+
+    uint16_t readUint16(std::ifstream& inFile);
+    uint32_t readUint32(std::ifstream& inFile);
 };
+
+#endif // WAVFILE_H
