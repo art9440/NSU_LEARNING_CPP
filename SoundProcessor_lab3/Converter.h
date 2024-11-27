@@ -1,5 +1,7 @@
 #include <vector>
 #include <cstdint>
+#include <iostream>
+#include "memory"
 
 class Converter {
 public:

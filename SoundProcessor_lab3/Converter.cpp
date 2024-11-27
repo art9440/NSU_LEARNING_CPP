@@ -1,11 +1,15 @@
 #include "Converter.h"
 
 // Реализация MuteConverter
-MuteConverter::MuteConverter(int start, int end) : start(start), end(end) {}
+MuteConverter::MuteConverter(int start, int end) : start(start), end(end) {
+    std::cout << "MuteConverter is done" << std::endl;
+}
 
 std::vector<int16_t> MuteConverter::process(const std::vector<int16_t>& input) {
+    int start_ = start * 44100;
+    int end_ = end * 44100;
     std::vector<int16_t> output = input;
-    for (int i = start; i < end && i < output.size(); ++i) {
+    for (int i = start_; i < end_ && i < output.size(); ++i) {
         output[i] = 0;
     }
     return output;
