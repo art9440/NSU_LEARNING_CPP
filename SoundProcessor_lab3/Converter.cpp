@@ -12,6 +12,7 @@ std::vector<int16_t> MuteConverter::process(const std::vector<int16_t>& input) {
     for (int i = start_; i < end_ && i < output.size(); ++i) {
         output[i] = 0;
     }
+    std::cout << "Muting is done" << std::endl;
     return output;
 }
 
@@ -24,7 +25,7 @@ void MuteConverter::setParams(const std::vector<int>& params) {
 
 // Реализация MixConverter
 MixConverter::MixConverter(const std::vector<int16_t>& additionalStream, int startPosition)
-    : additionalStream(additionalStream), startPosition(startPosition) {}
+    : additionalStream(additionalStream), startPosition(startPosition * 44100) {}
 
 std::vector<int16_t> MixConverter::process(const std::vector<int16_t>& input) {
     std::vector<int16_t> output = input;
@@ -51,13 +52,17 @@ void MixConverter::setParams(const std::vector<int>& params) {
 }
 
 // Реализация EchoConverter
-EchoConverter::EchoConverter(int delay, float decay) : delay(delay), decay(decay) {}
+EchoConverter::EchoConverter(int delay, float decay)
+    : delay(delay * 44100), decay(decay) {}
 
 std::vector<int16_t> EchoConverter::process(const std::vector<int16_t>& input) {
     std::vector<int16_t> output = input;
+
+    // Процесс применения эха
     for (size_t i = delay; i < output.size(); ++i) {
-        int16_t echoSample = static_cast<int16_t>(output[i - delay] * decay);
-        int32_t mixedSample = static_cast<int32_t>(output[i]) + echoSample;
+        // Вычисляем эхо с затуханием, используя тип int32_t для предотвращения переполнения
+        int32_t echoSample = static_cast<int32_t>(input[i - delay]) * decay;  // Используем int32_t для большей точности
+        int32_t mixedSample = static_cast<int32_t>(output[i]) + echoSample;    // Суммируем с оригинальным сэмплом
 
         // Ограничиваем значение в пределах диапазона int16_t
         if (mixedSample > INT16_MAX) {
@@ -70,8 +75,10 @@ std::vector<int16_t> EchoConverter::process(const std::vector<int16_t>& input) {
             output[i] = static_cast<int16_t>(mixedSample);
         }
     }
+
     return output;
 }
+
 
 void EchoConverter::setParams(const std::vector<int>& params) {
     if (params.size() >= 2) {
