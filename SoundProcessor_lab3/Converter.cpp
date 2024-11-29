@@ -2,7 +2,7 @@
 
 // Реализация MuteConverter
 MuteConverter::MuteConverter(int start, int end) : start(start), end(end) {
-    std::cout << "MuteConverter is done" << std::endl;
+    //std::cout << "MuteConverter is done" << std::endl;
 }
 
 std::vector<int16_t> MuteConverter::process(const std::vector<int16_t>& input) {
@@ -12,7 +12,7 @@ std::vector<int16_t> MuteConverter::process(const std::vector<int16_t>& input) {
     for (int i = start_; i < end_ && i < output.size(); ++i) {
         output[i] = 0;
     }
-    std::cout << "Muting is done" << std::endl;
+    //std::cout << "Muting is done" << std::endl;
     return output;
 }
 

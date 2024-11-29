@@ -3,21 +3,27 @@
 #include "ParseConsole.h"
 #include "ParseConfig.h"
 #include "ConverterFactory.h"
+#include "Exceptions.h"
 
 
 
 int main(int argc, char *argv[])
 {
 	ParseConsole parser;
-
-    if (!parser.parsing(argc, argv)) {
-        if (parser.use_help()) {
-            return 0;
+    try {
+        if (!parser.parsing(argc, argv)) {
+            if (parser.use_help()) {
+                return 0;
+            }
+            else {
+                throw std::runtime_error("Failed to parse command line arguments.");
+                return 1;
+            }
         }
-        else {
-            std::cerr << "Error: Failed to parse command line arguments." << std::endl;
-            return 1;
-        }
+    }
+    catch (const ParseConsoleException& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
     }
 
     std::cout << "config_file:" << parser.get_config_file() << "\n";
@@ -29,11 +35,15 @@ int main(int argc, char *argv[])
     std::vector<WavFile> inputWavs;
     for (const std::string& inputFile : parser.get_input_files()) {
         WavFile inputWav;
-        if (!inputWav.read(inputFile)) {
-            std::cerr << "Can`t read file: " << inputFile << std::endl;
+        try {
+            inputWav.read(inputFile);
+            
+            inputWavs.push_back(std::move(inputWav));
+        }
+        catch (const WavFileException& e) {
+            std::cerr << "Error: " << e.what() << std::endl;
             return 1;
         }
-        inputWavs.push_back(std::move(inputWav));
     }
 
     if (inputWavs.empty()) {
@@ -43,35 +53,43 @@ int main(int argc, char *argv[])
 
     ParseConfig configParser;
     std::vector<std::string> configLines;
-    if (!configParser.readConfigFile(parser.get_config_file(), configLines)) {
-        std::cerr << "Can`t read config file: " << parser.get_config_file() << std::endl;
+    try {
+        configParser.readConfigFile(parser.get_config_file(), configLines);
+    }
+    catch (const ConfigFileOpenException& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
 
     std::vector<std::unique_ptr<Converter>> converters;
     for (const std::string& line : configLines) {
         std::cout << line << std::endl;
-        std::unique_ptr<Converter> converter = ConverterFactory::createConverterFromLine(line, inputWavs);
-        if (!converter) {
-            std::cerr << "Can`t read line: " << line << std::endl;
+        try {
+            std::unique_ptr<Converter> converter = ConverterFactory::createConverterFromLine(line, inputWavs);
+            converters.push_back(std::move(converter));
+        }
+        catch (const ConverterException& e) {
+            std::cerr << "Error: " << e.what() << std::endl;
             return 1;
         }
-        converters.push_back(std::move(converter));
     }
-    std::cout <<"Amount of converters:" << sizeof(converters) << std::endl;
+    //std::cout <<"Amount of converters:" << sizeof(converters) << std::endl;
 
     std::vector<int16_t> samples = inputWavs[0].getSamples();
-    std::cout <<"RAte: " << inputWavs[0].getSampleRate() << std::endl;
+    //std::cout <<"RAte: " << inputWavs[0].getSampleRate() << std::endl;
     for (auto& converter : converters) {
         samples = converter->process(samples);
-        std::cout << "after converter: " << samples.size() << " samples" << std::endl;
+        //std::cout << "after converter: " << samples.size() << " samples" << std::endl;
     }
 
-    std::cout << "Amount of Samples: " << samples.size() << std::endl;
+    //std::cout << "Amount of Samples: " << samples.size() << std::endl;
     WavFile outputWav;
     outputWav.getSamples() = samples; // Задаем обработанные сэмплы
-    if (!outputWav.write(parser.get_output_file())) {
-        std::cerr << "Can`t write to file: " << parser.get_output_file() << std::endl;
+    try {
+        outputWav.write(parser.get_output_file());
+    }
+    catch (WavFileException& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
 

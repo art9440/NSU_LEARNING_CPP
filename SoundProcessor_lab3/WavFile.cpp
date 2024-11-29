@@ -1,4 +1,5 @@
 #include "WavFile.h"
+#include "Exceptions.h"
 #include <cstring>
 #include <stdexcept>
 #include <algorithm>
@@ -24,23 +25,20 @@ WavFile::WavFile() {
 bool WavFile::read(const std::string& filename) {
     std::ifstream inFile(filename, std::ios::binary);
     if (!inFile) {
-        std::cerr << "Error: Failed to open file " << filename << " for reading." << std::endl;
-        return false;
+        throw WavFileOpenException(filename, "reading");
     }
 
     // 1. Читаем RIFF и формат
     inFile.read(header.chunkId, 4);
     if (std::strncmp(header.chunkId, "RIFF", 4) != 0) {
-        std::cerr << "Error: Missing 'RIFF' identifier in WAV file." << std::endl;
-        return false;
+        throw InvalidWavFormatException(filename);
     }
 
     header.chunkSize = readUint32(inFile);
 
     inFile.read(header.format, 4);
     if (std::strncmp(header.format, "WAVE", 4) != 0) {
-        std::cerr << "Error: Missing 'WAVE' format identifier." << std::endl;
-        return false;
+        throw InvalidWavFormatException(filename);
     }
 
     // 2. Перебираем подчанки, пока не найдём 'fmt ' и 'data'
@@ -63,8 +61,7 @@ bool WavFile::read(const std::string& filename) {
             header.bitsPerSample = readUint16(inFile);
 
             if (header.audioFormat != 1 || header.numChannels != 1 || header.bitsPerSample != 16 || header.sampleRate != 44100) {
-                std::cerr << "Error: Unsupported WAV format (must be PCM, mono, 16-bit, 44100 Hz)." << std::endl;
-                return false;
+                throw InvalidWavFormatException(filename);
             }
 
             foundFmt = true;
@@ -76,8 +73,7 @@ bool WavFile::read(const std::string& filename) {
             inFile.read(reinterpret_cast<char*>(samples.data()), header.subchunk2Size);
 
             if (!inFile) {
-                std::cerr << "Error: Failed to read audio data from WAV file." << std::endl;
-                return false;
+                throw WavFileReadException(filename);
             }
 
             foundData = true;
@@ -90,18 +86,16 @@ bool WavFile::read(const std::string& filename) {
     }
 
     if (!foundFmt) {
-        std::cerr << "Error: Missing 'fmt ' subchunk in WAV file." << std::endl;
-        return false;
+        throw MissingSubchunkException(filename, "fmt ");
     }
 
     if (!foundData) {
-        std::cerr << "Error: Missing 'data' subchunk in WAV file." << std::endl;
-        return false;
+        throw MissingSubchunkException(filename, "data");
     }
 
     std::cout << "Successfully read file: " << filename << std::endl;
     std::cout << "Number of samples: " << samples.size() << std::endl;
-
+   
     return true;
 }
 
@@ -110,27 +104,23 @@ bool WavFile::read(const std::string& filename) {
 bool WavFile::write(const std::string& filename) {
     std::ofstream outFile(filename, std::ios::binary);
     if (!outFile) {
-        std::cerr << "Error: Can't open file for writing: " << filename << std::endl;
-        return false;
+        throw WavFileOpenException(filename, "writing");
     }
 
     // Write header as-is
     outFile.write(reinterpret_cast<const char*>(&header), sizeof(header));
     if (!outFile) {
-        std::cerr << "Error: Can't write header to file: " << filename << std::endl;
-        return false;
+        throw FileWriteException(filename);
     }
 
     // Write audio data
     if (samples.empty()) {
-        std::cerr << "Error: No samples to write to file: " << filename << std::endl;
-        return false;
+        throw FileWriteException(filename);
     }
 
     outFile.write(reinterpret_cast<const char*>(samples.data()), samples.size() * sizeof(int16_t));
     if (!outFile) {
-        std::cerr << "Error: Can't write audio data to file: " << filename << std::endl;
-        return false;
+        throw FileWriteException(filename);
     }
 
     std::cout << "Successfully wrote file: " << filename << std::endl;
