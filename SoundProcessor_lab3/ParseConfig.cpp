@@ -1,12 +1,12 @@
 #include "ParseConfig.h"
 #include <fstream>
 #include <iostream>
+#include "Exceptions.h"
 
 bool ParseConfig::readConfigFile(const std::string& filename, std::vector<std::string>& configLines) {
     std::ifstream config(filename);
     if (!config) {
-        std::cerr << "Ошибка: не удалось открыть файл " << filename << " для чтения." << std::endl;
-        return false;
+        throw ConfigFileOpenException(filename);
     }
 
     std::string line;

@@ -14,7 +14,7 @@ public:
 	std::string get_config_file() const;
 	bool hasConfig() const;
 	bool use_help() const;
-	void Show_input_files(std::vector<std::string> input_files);
+	void Show_input_files(const std::vector<std::string>& input_files);
 private:
 	std::vector<std::string> input_files;
 	std::string output_file;

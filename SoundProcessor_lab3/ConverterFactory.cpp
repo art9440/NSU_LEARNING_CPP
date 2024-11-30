@@ -1,8 +1,9 @@
 #include "ConverterFactory.h"
 #include <sstream>
 #include <iostream>
+#include "Exceptions.h"
 
-std::unique_ptr<Converter> ConverterFactory::createConverterFromLine(const std::string& line, 
+std::unique_ptr<Converter> ConverterFactory::createConverterFromLine(const std::string& line,
     std::vector<WavFile>& inputWavs) {
     std::istringstream iss(line);
     std::string command;
@@ -24,8 +25,7 @@ std::unique_ptr<Converter> ConverterFactory::createConverterFromLine(const std::
                 std::cout << "File index: " << fileIndex << std::endl;
             }
             catch (const std::invalid_argument& e) {
-                std::cerr << "Invalid file index in config: " << word << std::endl;
-                return nullptr; // Обрабатываем ошибку
+                throw InvalidParameterException(word);  // Неверный параметр
             }
         }
         else {
@@ -36,49 +36,41 @@ std::unique_ptr<Converter> ConverterFactory::createConverterFromLine(const std::
                 std::cout << "Parameter: " << param << std::endl;
             }
             catch (const std::invalid_argument& e) {
-                std::cerr << "Invalid parameter in config: " << word << std::endl;
-                return nullptr;
+                throw InvalidParameterException(word);  // Неверный параметр
             }
         }
     }
 
-
     // Обработка команд
     if (command == "mute") {
         if (params.size() < 2) {
-            std::cerr << "Error: Not enough arguments for mute(need 2)." << std::endl;
-            return nullptr;
+            throw ConverterInsufficientArgumentsException("mute", 2);  // Недостаточно аргументов для mute
         }
         return std::make_unique<MuteConverter>(params[0], params[1]);
     }
     else if (command == "mix") {
         if (params.size() < 2) {
-            std::cerr << "Error: Not enough arguments for mix(need 2)." << std::endl;
-            return nullptr;
+            throw ConverterInsufficientArgumentsException("mix", 2);  // Недостаточно аргументов для mix
         }
 
         int fileIndex = params[0];
         if (fileIndex < 0 || fileIndex >= static_cast<int>(inputWavs.size())) {
-            std::cerr << "Error: Invalid file index " << fileIndex << " for mix command." << std::endl;
-            return nullptr;
+            throw InvalidFileIndexException(fileIndex);  // Неверный индекс файла для mix
         }
 
         // Извлекаем дополнительный поток
         const std::vector<int16_t> additionalStream = inputWavs[fileIndex].getSamples();
-
-        return std::make_unique<MixConverter> (additionalStream, params[0]);
+        return std::make_unique<MixConverter>(additionalStream, params[1]);
     }
     else if (command == "echo") {
         if (params.size() < 1) {
-            std::cerr << "Error: Not enough arguments for echo(minimum 1)." << std::endl;
-            return nullptr;
+            throw ConverterInsufficientArgumentsException("echo", 1);  // Недостаточно аргументов для echo
         }
         int delay = params[0];
         float decay = params.size() > 1 ? static_cast<float>(params[1]) / 100.0f : 0.5f;
-        return  std::make_unique < EchoConverter> (delay, decay);
+        return std::make_unique<EchoConverter>(delay, decay);
     }
     else {
-        std::cerr << "Error: Unknown command " << command << std::endl;
-        return nullptr;
+        throw UnknownCommandException(command);  // Неизвестная команда
     }
 }
