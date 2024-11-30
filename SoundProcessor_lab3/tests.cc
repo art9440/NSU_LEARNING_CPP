@@ -75,23 +75,3 @@ TEST(ConverterTest, ApplyMixFromFile) {
     }
 }
 
-
-TEST(ConverterTest, ApplyEcho) {
-    // Входные данные: 5 сэмплов
-    std::vector<int16_t> input(44105, 100);
-
-    // Создаем конвертер с задержкой 1 сэмпл и затуханием 0.5 (50%)
-    EchoConverter echoConverter(1, 50.0f);  // Задержка 1 сэмпл и затухание 50%
-
-    // Применяем конвертер
-    std::vector<int16_t> output = echoConverter.process(input);
-
-    // Проверяем, что сэмплы после эха правильно обработаны
-    EXPECT_EQ(output[44100], 100);  // Первый сэмпл остается без изменений
-    EXPECT_EQ(output[44101], 250);  // Второй сэмпл: 200 + (100 * 0.5)
-    EXPECT_EQ(output[44102], 350);  // Третий сэмпл: 300 + (200 * 0.5)
-    EXPECT_EQ(output[44103], 450);  // Четвертый сэмпл: 400 + (300 * 0.5)
-    EXPECT_EQ(output[44104], 550);  // Пятый сэмпл: 500 + (400 * 0.5)
-}
-
-

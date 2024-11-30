@@ -110,16 +110,20 @@ bool WavFile::write(const std::string& filename) {
     // Write header as-is
     outFile.write(reinterpret_cast<const char*>(&header), sizeof(header));
     if (!outFile) {
+        std::cout << "#";
         throw FileWriteException(filename);
     }
 
     // Write audio data
     if (samples.empty()) {
+        std::cout << "!";
         throw FileWriteException(filename);
+        
     }
 
     outFile.write(reinterpret_cast<const char*>(samples.data()), samples.size() * sizeof(int16_t));
     if (!outFile) {
+        std::cout << "*";
         throw FileWriteException(filename);
     }
 
