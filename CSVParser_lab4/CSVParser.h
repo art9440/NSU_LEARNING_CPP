@@ -66,10 +66,8 @@ public:
             }
         };
 
-        void readTuple()
-        {
-            if (_parser._file.eof())
-            {
+        void readTuple() {
+            if (_parser._file.eof()) {
                 _isEnd = true;
                 return;
             }
@@ -77,48 +75,49 @@ public:
             _parser._file.seekg(_currentPosition);
             std::string currentLine;
             std::getline(_parser._file, currentLine);
+
             _currentPosition = _parser._file.tellg();
+
+            // Обрабатываем экранирование
             std::string processedLine = processEscaping(currentLine);
+
+            // Разделяем на столбцы с временным разделителем '\x1E'
             std::istringstream lineParser(processedLine);
-            lineParser.imbue(std::locale(std::locale::classic(), new OwnCType(_parser._separator)));
+            lineParser.imbue(std::locale(std::locale::classic(), new OwnCType('\x1E')));
+
+            // Читаем строку в кортеж
             _currentTuple = TupleReader<char, std::char_traits<char>, Args...>::read(lineParser, _lineNumber);
+
             ++_lineNumber;
         }
-        std::string processEscaping(const std::string& input)
-        {
-            std::string result;
-            std::string buffer;
-            bool inEscapeMode = false;
-            for (size_t i = 0; i < input.size(); ++i)
-            {
 
+        std::string processEscaping(const std::string& input) {
+            std::string result;
+            bool inEscapeMode = false;
+
+            for (size_t i = 0; i < input.size(); ++i) {
                 char c = input[i];
-                if (c == _parser._escapeChar)
-                {
-                    if (inEscapeMode)
-                    {
-                        result += buffer;
-                        inEscapeMode = false;
-                    }
-                    else
-                    {
-                        inEscapeMode = true;
-                    }
+
+                if (c == _parser._escapeChar) {
+                    // Переключаем режим экранирования
+                    inEscapeMode = !inEscapeMode;
                 }
-                else if (c != _parser._escapeChar && inEscapeMode)
-                {
-                    buffer += c;
+                else if (!inEscapeMode && c == _parser._separator) {
+                    // Если мы не в режиме экранирования и встречаем разделитель,
+                    // добавляем его как есть (разделяет столбцы)
+                    result += '\x1E'; // Специальный символ-разделитель для последующей обработки
                 }
-                else
-                {
+                else {
+                    // Добавляем символ в результат
                     result += c;
-                    inEscapeMode = false;
                 }
             }
-            if (inEscapeMode)
-            {
-                result += _parser._escapeChar + buffer;
+
+            // Если экранирование осталось незакрытым — ошибка
+            if (inEscapeMode) {
+                throw std::runtime_error("Unclosed escape sequence in input line: " + input);
             }
+
             return result;
         }
     };
