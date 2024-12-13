@@ -9,15 +9,18 @@ class TupleReader {
 public:
     static std::tuple<Head, Tail...> read(std::basic_istream<Ch, Tr>& inputStream, size_t lineNumber, size_t columnNumber = 1) {
         if (inputStream.eof()) {
-            throw NotEnoughData{ lineNumber };  // Исключение при недостаточности данных
-        }
-        Head data;
-        inputStream >> data;  // Чтение данных в первый элемент кортежа
-        if (inputStream.fail()) {
-            throw FailedToReadData{ lineNumber, columnNumber };  // Исключение, если чтение не удалось
+            throw NotEnoughData(lineNumber);  // Исключение при недостаточности данных
         }
 
-        // Рекурсивно вызываем для остальных элементов кортежа
+        Head data;
+        inputStream >> data;
+
+        // Проверка fail() после попытки чтения
+        if (inputStream.fail() || !inputStream) {
+            throw FailedToReadData(lineNumber, columnNumber);
+        }
+
+        // Рекурсивное чтение остальных данных в кортеже
         return std::tuple_cat(std::make_tuple(data), TupleReader<Ch, Tr, Tail...>::read(inputStream, lineNumber, columnNumber + 1));
     }
 };
@@ -28,13 +31,17 @@ class TupleReader<Ch, Tr, Head> {
 public:
     static std::tuple<Head> read(std::basic_istream<Ch, Tr>& inputStream, size_t lineNumber, size_t columnNumber = 1) {
         if (inputStream.eof()) {
-            throw NotEnoughData{ lineNumber };  // Исключение при недостаточности данных
+            throw NotEnoughData(lineNumber);  // Исключение при недостаточности данных
         }
+
         Head data;
-        inputStream >> data;  // Чтение данных в последний элемент кортежа
-        if (inputStream.fail()) {
-            throw FailedToReadData{ lineNumber, columnNumber };  // Исключение, если чтение не удалось
+        inputStream >> data;
+
+        // Проверка fail() после попытки чтения
+        if (inputStream.fail() || !inputStream) {
+            throw FailedToReadData(lineNumber, columnNumber);
         }
+
         return std::make_tuple(data);  // Возвращаем кортеж с одним элементом
     }
 };

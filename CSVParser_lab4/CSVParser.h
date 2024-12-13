@@ -29,6 +29,13 @@ public:
 
         ~Iterator() = default;
 
+
+        bool operator==(const Iterator& other) const {
+            // Сравнение по текущей позиции и состоянию _isEnd
+            return (_isEnd == other._isEnd) &&
+                (_isEnd || (_currentPosition == other._currentPosition));
+        }
+
         bool operator!=(const Iterator& other) const
         {
             return _isEnd != other._isEnd;
@@ -67,29 +74,33 @@ public:
         };
 
         void readTuple() {
-            if (_parser._file.eof()) {
-                _isEnd = true;
-                return;
-            }
-            _parser._file.clear();
-            _parser._file.seekg(_currentPosition);
-            std::string currentLine;
-            std::getline(_parser._file, currentLine);
+    if (_parser._file.eof()) {
+        _isEnd = true;
+        return;
+    }
+    _parser._file.clear();
+    _parser._file.seekg(_currentPosition);
+    std::string currentLine;
+    std::getline(_parser._file, currentLine);
 
-            _currentPosition = _parser._file.tellg();
+    _currentPosition = _parser._file.tellg();
 
-            // Обрабатываем экранирование
-            std::string processedLine = processEscaping(currentLine);
+    // Обрабатываем экранирование
+    std::string processedLine = processEscaping(currentLine);
 
-            // Разделяем на столбцы с временным разделителем '\x1E'
-            std::istringstream lineParser(processedLine);
-            lineParser.imbue(std::locale(std::locale::classic(), new OwnCType('\x1E')));
+    // Разделяем на столбцы с временным разделителем '\x1E'
+    std::istringstream lineParser(processedLine);
+    lineParser.imbue(std::locale(std::locale::classic(), new OwnCType('\x1E')));
 
-            // Читаем строку в кортеж
-            _currentTuple = TupleReader<char, std::char_traits<char>, Args...>::read(lineParser, _lineNumber);
+    try {
+        _currentTuple = TupleReader<char, std::char_traits<char>, Args...>::read(lineParser, _lineNumber);
+    } catch (...) {
+        throw; // Пробрасываем исключения выше
+    }
 
-            ++_lineNumber;
-        }
+    ++_lineNumber;
+}
+
 
         std::string processEscaping(const std::string& input) {
             std::string result;
